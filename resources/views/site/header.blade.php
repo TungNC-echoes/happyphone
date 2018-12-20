@@ -4,7 +4,7 @@
             <div class="pull-left auto-width-left">
                 <ul class="top-menu menu-beta l-inline">
                     <li><a style="text-decoration: none"><i class="fa fa-home"></i> Trường ĐHBKHN</a></li>
-                    <li><a style="text-decoration: none"><i class="fa fa-phone"></i> 0384 102 112 </a></li>
+                    <li><a style="text-decoration: none"><i class="fa fa-phone"></i> 0357 831 525 </a></li>
                 </ul>
             </div>
             <div class="pull-right auto-width-right">
