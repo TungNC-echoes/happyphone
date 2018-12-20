@@ -1,0 +1,13 @@
+#param_price-error{
+    width: 100%;
+}
+#image-error{
+    width: 100%;
+}
+.jconfirm-holder{
+    width: 500px;
+    margin: 0px auto;
+}
+.error{
+    color: red;
+}
