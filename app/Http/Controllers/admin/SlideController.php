@@ -28,7 +28,7 @@ class SlideController extends Controller
         $file = $request->file('image');
         $duoi = $file->getClientOriginalExtension();
         if ($duoi != 'jpg' && $duoi != 'png') {
-            return redirect('admin/slide/add.html')->with('thongbao', 'Bạn phải chọn file ảnh')->withInput();
+            return redirect('admin/slide/add')->with('thongbao', 'Bạn phải chọn file ảnh')->withInput();
         }
 
         do {
@@ -38,7 +38,7 @@ class SlideController extends Controller
         $file->move('source/image/slide/', $name);
         $slide->image = $name;
         $slide->save();
-        return redirect('admin/slide/add.html')->with('thongbao', 'Thêm slide thành công');
+        return redirect('admin/slide/add')->with('thongbao', 'Thêm slide thành công');
     }
     //hiển thị form sửa thông tin danh muc
     public function edit($id){
@@ -53,7 +53,7 @@ class SlideController extends Controller
             $file = $request->file('image');
             $duoi = $file->getClientOriginalExtension();
             if ($duoi != 'jpg' && $duoi != 'png') {
-                return redirect('admin/slide/edit/'.$id.'.html')->with('loi', 'Bạn phải chọn file ảnh')->withInput();
+                return redirect('admin/slide/edit/'.$id)->with('loi', 'Bạn phải chọn file ảnh')->withInput();
             }
             $tencu = $file->getClientOriginalName();
             do {
@@ -66,13 +66,13 @@ class SlideController extends Controller
                 unlink('source/image/slide/'.$tencu);
         }
         $slide->save();
-        return redirect('admin/slide/edit/'.$id.'.html')->with('thongbao', 'Chỉnh sửa danh mục thành công');
+        return redirect('admin/slide/edit/'.$id)->with('thongbao', 'Chỉnh sửa danh mục thành công');
     }
     //xóa danh muc
     public function delete($id){
         $slide = Silde::find($id);
         if(!$slide) return view('admin.product.error');
         $slide->delete();
-        return redirect('admin/slide/view.html')->with('thongbao','Xóa slide thành công');
+        return redirect('admin/slide/view')->with('thongbao','Xóa slide thành công');
     }
 }

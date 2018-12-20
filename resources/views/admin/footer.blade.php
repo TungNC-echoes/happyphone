@@ -1,7 +1,7 @@
 <div id="footer">
     <div class="wrapper">
 
-        <div>Cửa hàng Tuấn Anh</div>
+        <div>Cửa hàng Happy Phone</div>
     </div>
 </div>
 </div>

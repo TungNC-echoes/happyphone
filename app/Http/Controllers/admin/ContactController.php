@@ -20,7 +20,7 @@ class ContactController extends Controller
         $contact = Contact::find($id);
         if(!$contact) return view('admin.product.error');
         $contact->delete();
-        return redirect('admin/contact/view.html')->with('thongbao','Xóa phản hồi thành công');
+        return redirect('admin/contact/view')->with('thongbao','Xóa phản hồi thành công');
     }
     //xóa nhiều phản hồi
     public function deleteMultiple(Request $request){

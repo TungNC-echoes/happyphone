@@ -52,14 +52,14 @@
                                 <?php $i = 0;?>
                                 @foreach($new_product as $row)
                                     <?php $i++?>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-3 col-xs-4">
                                         <div class="single-item">
                                             @if($row->promotion_price != 0)
                                                 <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                             @endif
                                             <div class="single-item-header">
                                                 <a href="{{route('chitiet',$row->id)}}">
-                                                    <img src="source/image/product/{{$row->image}}" alt="" height="250px">
+                                                    <img src="source/image/product/{{$row->image}}" alt="" height="220px">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">

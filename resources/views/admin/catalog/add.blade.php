@@ -9,11 +9,11 @@
 
             <div class="horControlB menu_action">
                 <ul>
-                    <li><a href="admin/catalog/add.html">
+                    <li><a href="admin/catalog/add">
                             <img src="source/backend/admin/images/icons/control/16/add.png" />
                             <span>Thêm mới</span>
                         </a></li>
-                    <li><a href="admin/catalog/view.html">
+                    <li><a href="admin/catalog/view">
                             <img src="source/backend/admin/images/icons/control/16/list.png" />
                             <span>Danh sách</span>
                         </a></li>

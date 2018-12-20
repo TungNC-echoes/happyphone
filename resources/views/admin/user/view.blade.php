@@ -9,11 +9,11 @@
 
             <div class="horControlB menu_action">
                 <ul>
-                    <li><a href="admin/user/add.html">
+                    <li><a href="admin/user/add">
                             <img src="source/backend/admin/images/icons/control/16/add.png" />
                             <span>Thêm mới</span>
                         </a></li>
-                    <li><a href="admin/user/view.html">
+                    <li><a href="admin/user/view">
                             <img src="source/backend/admin/images/icons/control/16/list.png" />
                             <span>Danh sách</span>
                         </a></li>
@@ -78,11 +78,11 @@
                         <td class="textC">{{$row->address}}</td>
 
                         <td class="option textC">
-                            <a href="admin/user/edit/{{$row->id}}.html" title="Chỉnh sửa" class="tipS">
+                            <a href="admin/user/edit/{{$row->id}}" title="Chỉnh sửa" class="tipS">
                                 <img src="source/backend/admin/images/icons/color/edit.png" />
                             </a>
 
-                            <a href="admin/user/delete/{{$row->id}}.html" value="{{$row->id}}" title="Xóa" class="tipS delete" >
+                            <a href="admin/user/delete/{{$row->id}}" value="{{$row->id}}" title="Xóa" class="tipS delete" >
                                 <img src="source/backend/admin/images/icons/color/delete.png" />
                             </a>
                         </td>
@@ -113,7 +113,7 @@
                         Ok: {
                             btnClass: 'btn-blue',
                             action:function () {
-                                window.location.href = 'admin/user/delete/'+id+'.html';
+                                window.location.href = 'admin/user/delete/'+id;
                             }
                         },
                         Cancel: {}
@@ -145,7 +145,7 @@
                                 action:function () {
                                     $.ajax({
                                         type: "post",
-                                        url: 'admin/user/deleteMultiple.html',
+                                        url: 'admin/user/deleteMultiple',
                                         data:{
                                             _token:$('meta[name="csrf-token"]').attr('content'),
                                             allVals:allVals
@@ -168,7 +168,7 @@
                                                     backgroundDismiss: true,
                                                 });
                                             }else{
-                                                window.location.href = 'admin/product/error.html';
+                                                window.location.href = 'admin/product/error';
                                             }
                                         }
 

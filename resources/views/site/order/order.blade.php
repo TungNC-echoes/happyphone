@@ -143,7 +143,7 @@
                             OK: {
                                 btnClass: 'btn-blue',
                                 action:function () {
-                                    window.location.href = 'index.html';
+                                    window.location.href = 'index';
                                 }
                             }
                         }

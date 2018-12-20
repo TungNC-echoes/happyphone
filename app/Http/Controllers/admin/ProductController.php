@@ -36,7 +36,7 @@ class ProductController extends Controller
         $file = $request->file('image');
         $duoi = $file->getClientOriginalExtension();
         if ($duoi != 'jpg' && $duoi != 'png') {
-            return redirect('admin/product/add.html')->with('thongbao', 'Bạn phải chọn file ảnh')->withInput();
+            return redirect('admin/product/add')->with('thongbao', 'Bạn phải chọn file ảnh')->withInput();
         }
 
         do {
@@ -46,7 +46,7 @@ class ProductController extends Controller
         $product->image = $name;
         $file->move('source/image/product/', $name);
         $product->save();
-        return redirect('admin/product/add.html')->with('thongbao', 'Thêm sản phẩm thành công');
+        return redirect('admin/product/add')->with('thongbao', 'Thêm sản phẩm thành công');
     }
     //hiển thị form sửa thông tin sản phẩm
     public function edit($id){
@@ -80,14 +80,14 @@ class ProductController extends Controller
                 unlink('source/image/product/'.$tencu);
         }
         $product->save();
-        return redirect('admin/product/edit/'.$id.'.html')->with('thongbao', 'Chỉnh sửa sản phẩm thành công');
+        return redirect('admin/product/edit/'.$id)->with('thongbao', 'Chỉnh sửa sản phẩm thành công');
     }
     //xóa sản phẩm
     public function delete($id){
         $product = Product::find($id);
         if(!$product) return view('admin.product.error');
         $product->delete();
-        return redirect('admin/product/view.html')->with('thongbao','Xóa sản phẩm thành công');
+        return redirect('admin/product/view')->with('thongbao','Xóa sản phẩm thành công');
     }
     //xóa nhiều sản phẩm
     public function deleteMultiple(Request $request){
@@ -117,8 +117,8 @@ class ProductController extends Controller
                 $product = $product->paginate(5);
             }
         }
-        if(!$product) return redirect('admin/product/error.html');
-        $product->setPath('./admin/product/search.html?name='.$request->name.'&catalog='.$request->catalog);
+        if(!$product) return redirect('admin/product/error');
+        $product->setPath('./admin/product/search?name='.$request->name.'&catalog='.$request->catalog);
         return view('admin.product.view',compact(['product','total']));
 
 

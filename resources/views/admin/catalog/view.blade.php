@@ -10,12 +10,12 @@
 
         <div class="horControlB menu_action">
             <ul>
-                <li><a href="admin/catalog/add.html">
+                <li><a href="admin/catalog/add">
                         <img src="source/backend/admin/images/icons/control/16/add.png" />
                         <span>Thêm mới</span>
                     </a></li>
 
-                <li><a href="admin/catalog/view.html">
+                <li><a href="admin/catalog/view">
                         <img src="source/backend/admin/images/icons/control/16/list.png" />
                         <span>Danh sách</span>
                     </a></li>
@@ -78,16 +78,16 @@
                 <td>{{$row->description}}</td>
                 <td>
                     <div class="image_thumb">
-                        <img src="source/image/catalog/{{$row->image}}" height="50">
+                        <img src="source/image/catalog/{{$row->image}}" height="70">
                         <div class="clear"></div>
                     </div>
                 </td>
                 <td class="option">
-                    <a href="admin/catalog/edit/{{$row->id}}.html" title="Chỉnh sửa" class="tipS ">
+                    <a href="admin/catalog/edit/{{$row->id}}" title="Chỉnh sửa" class="tipS ">
                         <img src="source/backend/admin/images/icons/color/edit.png" />
                     </a>
 
-                    <a href="admin/catalog/delete/{{$row->id}}.html"  value="{{$row->id}}" title="Xóa" class="tipS delete" >
+                    <a href="admin/catalog/delete/{{$row->id}}"  value="{{$row->id}}" title="Xóa" class="tipS delete" >
                         <img src="source/backend/admin/images/icons/color/delete.png" />
                     </a>
                 </td>
@@ -116,7 +116,7 @@
                         Ok: {
                             btnClass: 'btn-blue',
                             action:function () {
-                                window.location.href = 'admin/catalog/delete/'+id+'.html';
+                                window.location.href = 'admin/catalog/delete/'+id;
                             }
                         },
                         Cancel: {}
@@ -148,7 +148,7 @@
                                 action:function () {
                                     $.ajax({
                                         type: "post",
-                                        url: 'admin/catalog/deleteMultiple.html',
+                                        url: 'admin/catalog/deleteMultiple',
                                         data:{
                                             _token:$('meta[name="csrf-token"]').attr('content'),
                                             allVals:allVals
@@ -167,7 +167,7 @@
                                                     backgroundDismiss: true,
                                                 });
                                             }else{
-                                                window.location.href = 'admin/product/error.html';
+                                                window.location.href = 'admin/product/error';
                                             }
                                         }
 

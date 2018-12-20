@@ -63,7 +63,7 @@ class HomeController extends Controller
         $contact->message = $request->message;
         $contact->date = date("Y-m-d");
         $contact->save();
-        return redirect('lienhe.html')->with('thongbao','Cảm ơn bạn đã phản hồi');
+        return redirect('lienhe')->with('thongbao','Cảm ơn bạn đã phản hồi');
     }
     public function getGioiThieu(){
         return view('site.home.gioithieu');
