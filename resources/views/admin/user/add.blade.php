@@ -9,11 +9,11 @@
 
             <div class="horControlB menu_action">
                 <ul>
-                    <li><a href="admin/user/add.html">
+                    <li><a href="admin/user/add">
                             <img src="source/backend/admin/images/icons/control/16/add.png" />
                             <span>Thêm mới</span>
                         </a></li>
-                    <li><a href="admin/user/view.html">
+                    <li><a href="admin/user/view">
                             <img src="source/backend/admin/images/icons/control/16/list.png" />
                             <span>Danh sách</span>
                         </a></li>
@@ -119,7 +119,7 @@
                         required:true,
                         email:true,
                         remote: {
-                            url: "check-email.html",
+                            url: "check-email",
                             type: "post",
                             data: {_token: CSRF_TOKEN},
                         }

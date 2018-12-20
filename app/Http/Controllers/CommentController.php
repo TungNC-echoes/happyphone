@@ -31,7 +31,7 @@ class CommentController extends Controller
         $comment->product_id = $product_id;
         $comment->save();
 
-        return redirect($product_id . '/chitiet.html')->with('message', 'Success');
+        return redirect($product_id . '/chitiet')->with('message', 'Success');
     }
 
     /**

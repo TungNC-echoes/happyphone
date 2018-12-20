@@ -10,7 +10,7 @@
             <div class="horControlB menu_action">
                 <ul>
 
-                    <li><a href="admin/order/view.html">
+                    <li><a href="admin/order/view">
                             <img src="source/backend/admin/images/icons/control/16/list.png" />
                             <span>Danh sách</span>
                         </a></li>
@@ -56,7 +56,7 @@
                                     <td class="item"></td>
                                     <td colspan='2' style='width:60px'>
                                         <input type="submit" id="search" class="button blueB" value="Tìm kiếm" />
-                                        <input type="reset" class="basic" value="Reset" onclick="window.location.href = 'admin/transaction/view.html'; ">
+                                        <input type="reset" class="basic" value="Reset" onclick="window.location.href = 'admin/transaction/view'; ">
                                     </td>
 
 
@@ -122,7 +122,7 @@
 
                     <td>
                         <div class="image_thumb">
-                            <img src="source/image/product/{{$order->image}}" height="50">
+                            <img src="source/image/product/{{$order->image}}" height="70">
                         </div>
                         <div style="margin-top: 17px">
                             <a href="{{route('chitiet',['id' =>$order->id_product ])}}" class="tipS" title="" target="_blank">
@@ -147,7 +147,7 @@
                     <td class="textC">{{$order->created_at}}</td>
 
                     <td class="textC">
-                        <a href="admin/tran/del/12.html" title="Xóa"  value="{{$order->id_order}}" class="tipS delete" >
+                        <a href="admin/tran/del/12" title="Xóa"  value="{{$order->id_order}}" class="tipS delete" >
                             <img src="source/backend/admin/images/icons/color/delete.png" />
                         </a>
                     </td>
@@ -180,7 +180,7 @@
                         Ok: {
                             btnClass: 'btn-blue',
                             action:function () {
-                                window.location.href = 'admin/order/delete/'+id+'.html';
+                                window.location.href = 'admin/order/delete/'+id;
                             }
                         },
                         Cancel: {}
@@ -217,13 +217,13 @@
                                 action:function () {
                                     $.ajax({
                                         type: "post",
-                                        url: 'admin/order/deleteMultiple.html',
+                                        url: 'admin/order/deleteMultiple',
                                         data:{
                                             _token:$('meta[name="csrf-token"]').attr('content'),
                                             allVals:allVals
                                         },
                                         success:function (data) {
-                                            window.location.href = 'admin/order/view.html';
+                                            window.location.href = 'admin/order/view';
                                             $.dialog({
                                                 theme: 'material',
                                                 title: '',
@@ -231,7 +231,7 @@
                                                 animationSpeed: 100,
                                                 backgroundDismiss: true,
                                             });
-                                               // window.location.href = 'admin/product/error.html';
+                                               // window.location.href = 'admin/product/error';
                                             }
                                             // $.each(allVals, function( index, value ) {
                                             //     $('table tr').filter(".row_" + value).remove();

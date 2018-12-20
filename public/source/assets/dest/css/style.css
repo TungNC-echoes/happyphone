@@ -4704,6 +4704,7 @@ html{overflow-x:hidden;}
 .container{width:100%}
 body{padding:0px!important; margin:0px!important; border:0px!important;}
 html{overflow-x:hidden;}
+
 }
 @media (max-width: 406px) and (min-width: 100px){
 .auto-width-left{width:59%;}

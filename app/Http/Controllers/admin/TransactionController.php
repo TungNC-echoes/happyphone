@@ -45,7 +45,7 @@ class TransactionController extends Controller
         $file = $request->file('image');
         $duoi = $file->getClientOriginalExtension();
         if ($duoi != 'jpg' && $duoi != 'png') {
-            return redirect('admin/order/add.html')->with('thongbao', 'Bạn phải chọn file ảnh')->withInput();
+            return redirect('admin/order/add')->with('thongbao', 'Bạn phải chọn file ảnh')->withInput();
         }
 
         do {
@@ -55,7 +55,7 @@ class TransactionController extends Controller
         $tran->image = $name;
         $file->move('source/image/Order/', $name);
         $tran->save();
-        return redirect('admin/Order/add.html')->with('thongbao', 'Thêm sản phẩm thành công');
+        return redirect('admin/Order/add')->with('thongbao', 'Thêm sản phẩm thành công');
     }
     //hiển thị form sửa thông tin sản phẩm
     public function edit($id){
@@ -76,7 +76,7 @@ class TransactionController extends Controller
             $file = $request->file('image');
             $duoi = $file->getClientOriginalExtension();
             if ($duoi != 'jpg' && $duoi != 'png') {
-                return redirect('admin/Order/edit/'.$id.'.html')->with('loi', 'Bạn phải chọn file ảnh')->withInput();
+                return redirect('admin/Order/edit/'.$id)->with('loi', 'Bạn phải chọn file ảnh')->withInput();
             }
             $tencu = $file->getClientOriginalName();
             do {
@@ -89,7 +89,7 @@ class TransactionController extends Controller
                 unlink('source/image/Order/'.$tencu);
         }
         $tran->save();
-        return redirect('admin/Order/edit/'.$id.'.html')->with('thongbao', 'Chỉnh sửa sản phẩm thành công');
+        return redirect('admin/Order/edit/'.$id)->with('thongbao', 'Chỉnh sửa sản phẩm thành công');
     }
     //xóa một giao dịch
     public function delete($id){
@@ -97,7 +97,7 @@ class TransactionController extends Controller
         if(!$tran) return view('admin.product.error');
         OrderDetail::where('id_bill',$id)->delete();
         $tran->delete();
-        return redirect('admin/transaction/view.html')->with('thongbao','Xóa giao dịch thành công');
+        return redirect('admin/transaction/view')->with('thongbao','Xóa giao dịch thành công');
     }
     //xóa nhiều giao dịch
     public function deleteMultiple(Request $request){

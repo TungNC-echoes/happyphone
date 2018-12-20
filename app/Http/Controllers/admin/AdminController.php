@@ -12,7 +12,7 @@ class AdminController extends Controller
     //
     public function getLogin(){
         if(Auth::guard('admin')->check())
-            return redirect()->intended('admin/home/index.html');
+            return redirect()->intended('admin/home/index');
         return view('admin.login');
     }
     public function postLogin(Request $request){
@@ -20,13 +20,13 @@ class AdminController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ])){
-            return redirect()->intended('admin/home/index.html');
+            return redirect()->intended('admin/home/index');
         }
-        return redirect('admin/login.html')->with('thongbao','Đăng nhập không thành công')->withInput();
+        return redirect('admin/login')->with('thongbao','Đăng nhập không thành công')->withInput();
     }
     public function getLogout(){
         Auth::guard('admin')->logout();
-        return redirect('admin/login.html');
+        return redirect('admin/login');
     }
     //hiển thị thông tin admin
     public function view(){
@@ -47,6 +47,6 @@ class AdminController extends Controller
         if($request->password!='')
             $admin->password = bcrypt($request->password);
         $admin->save();
-        return redirect('admin/admin/edit/'.$id.'.html')->with('thongbao', 'Chỉnh sửa thông tin admin thành công');
+        return redirect('admin/admin/edit/'.$id)->with('thongbao', 'Chỉnh sửa thông tin admin thành công');
     }
 }

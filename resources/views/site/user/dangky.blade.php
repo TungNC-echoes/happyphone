@@ -7,7 +7,7 @@
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb">
-                <a href="index.html">Trang chủ</a> / <span>Đăng kí</span>
+                <a href="index">Trang chủ</a> / <span>Đăng kí</span>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -76,7 +76,7 @@
                         required:true,
                         email:true,
                         remote: {
-                            url: "check-email.html",
+                            url: "check-email",
                             type: "post",
                             data: {_token: CSRF_TOKEN},
                         }

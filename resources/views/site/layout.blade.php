@@ -8,8 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta property="og:description"   content="Bơi hết vào đây" />
-    <link rel="stylesheet" title="style" href="css/index.css">
-    <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
+    {{--<link rel="stylesheet" title="style" href="css/index.css">--}}
+    {{--<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>--}}
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="source/assets/dest/css/bootstrap.css">
     <link rel="stylesheet" href="source/assets/dest/css/intlTelInput.css">
@@ -84,7 +84,7 @@
         });
         $.ajax({
             type: "GET",
-            url: 'gio-hang.html'
+            url: 'gio-hang'
         })
             .done(function(data) {
                 var title ='';
@@ -112,7 +112,7 @@
                         '                                <div class="clearfix"></div>\n'+
                         '                                <div class="center">\n' +
                         '                                    <div class="space10">&nbsp;</div>\n' +
-                        '                                    <a href="dat-hang.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>\n' +
+                        '                                    <a href="dat-hang" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>\n' +
                         '                                </div>\n' +
                         '                            </div>\n' +
                         '                        </div>';
@@ -144,7 +144,7 @@
             if(value){
                 $.ajax({
                     type: "GET",
-                    url: id+'/'+value+'/update-cart.html'
+                    url: id+'/'+value+'/update-cart'
                 }). done(function( msg ) {
                     temp.val(msg[0]);
                     $('#total').html( msg[1]+' VNĐ');
@@ -174,7 +174,7 @@
                         var id = temp.attr('product_id');
                             $.ajax({
                                 type: "GET",
-                                url: id+'/delete-cart.html'
+                                url: id+'/delete-cart'
                             }). done(function( data ) {
                                 $('#count').html('Giỏ hàng ( '+data[0]+' )');
                                 temp.parent().remove();
@@ -202,28 +202,15 @@
                     }
                 }
             });
-            // if(confirm('Bạn có chắc chắn xóa sản phẩm này trong giỏ hàng')){
-            //     var id = $(this).attr('product_id');
-            //     var temp = $(this);
-            //     $.ajax({
-            //         type: "GET",
-            //         url: id+'/delete-cart.html'
-            //     }). done(function( data ) {
-            //         $('#count').html('Giỏ hàng ( '+data[0]+' )');
-            //         temp.parent().remove();
-            //         $('#total').html(data[1]+' VNĐ');
-            //         alert('Xóa sản phẩm thành công');
-            //     });
-            // }
         });
         $(".add-to-cart").on("click", function(e){
             e.preventDefault();
             var id = $(this).attr('product_id');
             if($(this).prev().attr('value')!=undefined){
-                url = id+'/'+$(this).prev().val()+'/add-to-cart.html'
+                url = id+'/'+$(this).prev().val()+'/add-to-cart'
 
             }else{
-                url = id+'/1/add-to-cart.html';
+                url = id+'/1/add-to-cart';
             }
             var title = '';
             $.ajax({
@@ -255,7 +242,7 @@
                             '                                <div class="clearfix"></div>\n' +
                             '                                <div class="center">\n' +
                             '                                    <div class="space10">&nbsp;</div>\n' +
-                            '                                    <a href="dat-hang.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>\n' +
+                            '                                    <a href="dat-hang" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>\n' +
                             '                                </div>\n' +
                             '                            </div>\n' +
                             '                        </div>';
@@ -277,7 +264,7 @@
                                 Ok: {
                                     btnClass: 'btn-blue',
                                     action:function () {
-                                        window.location.href = 'dang-nhap.html';
+                                        window.location.href = 'dang-nhap';
                                     }
                                 },
                                 Cancel: {}
@@ -293,7 +280,7 @@
         //suggest search
         var engine = new Bloodhound({
             remote: {
-                url: 'search.html?q=%QUERY%',
+                url: 'search?q=%QUERY%',
                 wildcard: '%QUERY%'
             },
             datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -320,36 +307,9 @@
                 }
             }
         });
-        //không sử dụng bloodhound
-        // var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        // $('.search-input').typeahead({
-        //     source: function(query, result)
-        //     {
-        //         $.ajax({
-        //             url:"search.html",
-        //             method:"post",
-        //             dataType:"json",
-        //             data:{key:query,_token: CSRF_TOKEN},
-        //             success:function(data)
-        //             {
-        //                 result($.map(data, function(item){
-        //                     return item;
-        //                 }));
-        //             }
-        //         })
-        //     },
-        // });
-        //c2
-        // $('.search-input').typeahead({
-        //     source:  function (query, process) {
-        //         return $.get('search.html', { key: query }, function (data) {
-        //             return process(data);
-        //         });
-        //     }
-        // });
         $('input[name=subject],textarea[name=message]').click(function () {
             if(!$('#user').length){
-                window.location.href = 'dang-nhap.html';
+                window.location.href = 'dang-nhap';
             }
         });
         if($('#user').length){

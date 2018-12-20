@@ -18,7 +18,7 @@
                         <tr>
                             <td>
                                 <div class="left">Tổng số giao dịch</div>
-                                <div class="right f11"><a href="admin/transaction/view.html" target="_blank">Chi tiết</a></div>
+                                <div class="right f11"><a href="admin/transaction/view" target="_blank">Chi tiết</a></div>
                             </td>
 
                             <td class="textC webStatsLink">
@@ -28,7 +28,7 @@
                         <tr>
                             <td>
                                 <div class="left">Tổng số sản phẩm</div>
-                                <div class="right f11"><a href="admin/product/view.html" target="_blank">Chi tiết</a></div>
+                                <div class="right f11"><a href="admin/product/view" target="_blank">Chi tiết</a></div>
                             </td>
 
                             <td class="textC webStatsLink">
@@ -38,7 +38,7 @@
                         <tr>
                             <td>
                                 <div class="left">Tổng số bài viết</div>
-                                <div class="right f11"><a href="admin/contact/view.html" target="_blank">Chi tiết</a></div>
+                                <div class="right f11"><a href="admin/contact/view" target="_blank">Chi tiết</a></div>
                             </td>
 
                             <td class="textC webStatsLink">
@@ -48,7 +48,7 @@
                         <tr>
                             <td>
                                 <div class="left">Tổng số khách hàng</div>
-                                <div class="right f11"><a href="admin/user/view.html" target="_blank">Chi tiết</a></div>
+                                <div class="right f11"><a href="admin/user/view" target="_blank">Chi tiết</a></div>
                             </td>
 
                             <td class="textC webStatsLink">
@@ -105,7 +105,7 @@
                             <td class="textC">{{$row->date_order}}</td>
                             <td class="textC">{{$row->note}}</td>
                             <td class="textC">
-                                <a href="admin/tran/chitiet/{{$row->id}}.html" value="{{$row->id}}" title="Xem chi tiết giao dịch" class="tipS chitiet" >
+                                <a href="admin/tran/chitiet/{{$row->id}}" value="{{$row->id}}" title="Xem chi tiết giao dịch" class="tipS chitiet" >
                                     <img src="source/backend/admin/images/icons/color/view.png" />
                                 </a>
                             </td>
@@ -131,7 +131,7 @@
                 e.preventDefault();
                 $.ajax({
                     type:'get',
-                    url:'admin/transaction/chitiet/'+$(this).attr('value')+'.html',
+                    url:'admin/transaction/chitiet/'+$(this).attr('value'),
                     success:function (data) {
                         var str = '<table cellpadding="0" cellspacing="0" ' +
                             'width="100%" class="sTable mTable myTable" id="checkAll">'+
@@ -151,10 +151,10 @@
                             str +='<tr><td class="textC">'+value.id_order+'</td>\n'+
                                 ' <td>\n' +
                                 '                        <div class="image_thumb">\n' +
-                                '                            <img src="source/image/product/'+value.image+'" height="50">\n' +
+                                '                            <img src="source/image/product/'+value.image+'" height="70">\n' +
                                 '                        </div>\n' +
                                 '                        <div style="margin-top: 17px">\n' +
-                                '                            <a href="'+value.id_product+'/chitiet.html" class="tipS" title="" target="_blank">\n' +
+                                '                            <a href="'+value.id_product+'/chitiet" class="tipS" title="" target="_blank">\n' +
                                 '                                <b>'+value.name+'</b>\n' +
                                 '                            </a>\n' +
                                 '                        </div>\n' +

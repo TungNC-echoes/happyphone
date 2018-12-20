@@ -9,11 +9,11 @@
 
             <div class="horControlB menu_action">
                 <ul>
-                    <li><a href="admin/catalog/add.html">
+                    <li><a href="admin/catalog/add">
                             <img src="source/backend/admin/images/icons/control/16/add.png" />
                             <span>Thêm mới</span>
                         </a></li>
-                    <li><a href="admin/catalog/view.html">
+                    <li><a href="admin/catalog/view">
                             <img src="source/backend/admin/images/icons/control/16/list.png" />
                             <span>Danh sách</span>
                         </a></li>
@@ -59,7 +59,7 @@
                         <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
                         <div class="formRight">
                             <div class="left">
-                                <div><img src="source/image/product/{{$catalog->image}}" width="350px"></div>
+                                <div><img src="source/image/product/{{$catalog->image}}" style="width: 173px; height: 205px"></div>
                                 <div><input type="file" id="image" name="image" /></div>
                             </div>
 

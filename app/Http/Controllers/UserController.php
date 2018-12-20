@@ -24,7 +24,7 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->password = bcrypt($request->password);
         $user->save();
-        return redirect('dang-ky.html')->with('thongbao','Đăng ký tài khoản thành công');
+        return redirect('dang-ky')->with('thongbao','Đăng ký tài khoản thành công');
     }
     //
     public function getDangNhap(Request $request){
@@ -35,14 +35,14 @@ class UserController extends Controller
     //
     public function postDangNhap(Request $request){
         if(Auth::attempt(['email' =>$request->email,'password' => $request->password])){
-            //return redirect()->intended('index.html')->with('thongbao','Đăng nhập thành công');
+            //return redirect()->intended('index')->with('thongbao','Đăng nhập thành công');
             $url = Session::get('url');
             //Session::forget('url');
-            if(strpos($url,'dang-ky.html')!==false)
-                return redirect('index.html')->with('thongbao','Đăng nhập thành công');
+            if(strpos($url,'dang-ky')!==false)
+                return redirect('index')->with('thongbao','Đăng nhập thành công');
             return redirect($url)->with('thongbao','Đăng nhập thành công');
         }
-        return redirect('dang-nhap.html')->with('thongbao','Đăng nhập không thành công');
+        return redirect('dang-nhap')->with('thongbao','Đăng nhập không thành công');
     }
     //
     public function checkEmail(Request $request){
@@ -71,6 +71,6 @@ class UserController extends Controller
         if($request->password!='')
         $user->password = bcrypt($request->password);
         $user->save();
-        return redirect('thay-doi-tai-khoan.html')->with('thongbao','Thay đổi tài khoản thành công');
+        return redirect('thay-doi-tai-khoan')->with('thongbao','Thay đổi tài khoản thành công');
     }
 }

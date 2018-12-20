@@ -37,6 +37,6 @@ class OrderController extends Controller
             $order->save();
         }
         Cart::destroy();
-        return redirect('dat-hang.html')->with('thongbao','Cảm ơn bạn đã đặt hàng sản phẩm của chúng tôi!');
+        return redirect('dat-hang')->with('thongbao','Cảm ơn bạn đã đặt hàng sản phẩm của chúng tôi!');
     }
 }

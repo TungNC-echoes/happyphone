@@ -32,7 +32,7 @@ class CatalogController extends Controller
 //        ]);
         //var_dump(count(Catalog::where('name',$request->name)->get()));
         if(count(Catalog::where('name',$request->name)->get())>0){
-            return redirect('admin/catalog/add.html')->with('thongbao', 'Tên danh mục đã tồn tại')->withInput();
+            return redirect('admin/catalog/add')->with('thongbao', 'Tên danh mục đã tồn tại')->withInput();
         }
         $catalog = new Catalog();
         $catalog->name = $request->name;
@@ -40,7 +40,7 @@ class CatalogController extends Controller
         $file = $request->file('image');
         $duoi = $file->getClientOriginalExtension();
         if ($duoi != 'jpg' && $duoi != 'png') {
-            return redirect('admin/catalog/add.html')->with('thongbao', 'Bạn phải chọn file ảnh')->withInput();
+            return redirect('admin/catalog/add')->with('thongbao', 'Bạn phải chọn file ảnh')->withInput();
         }
 
         do {
@@ -50,7 +50,7 @@ class CatalogController extends Controller
         $catalog->image = $name;
         $file->move('source/image/catalog/', $name);
         $catalog->save();
-        return redirect('admin/catalog/add.html')->with('thongbao', 'Thêm danh mục thành công');
+        return redirect('admin/catalog/add')->with('thongbao', 'Thêm danh mục thành công');
     }
     //hiển thị form sửa thông tin danh muc
     public function edit($id){
@@ -64,7 +64,7 @@ class CatalogController extends Controller
         if(count(Catalog::where('name',$request->name)
                 ->where('name','<>',$catalog->name)
                 ->get())>0){
-            return redirect('admin/catalog/edit/'.$id.'.html')->with('loi', 'Tên danh mục đã tồn tại')->withInput();
+            return redirect('admin/catalog/edit/'.$id)->with('loi', 'Tên danh mục đã tồn tại')->withInput();
         }
         $catalog->name = $request->name;
         $catalog->description = $request->mota;
@@ -72,7 +72,7 @@ class CatalogController extends Controller
             $file = $request->file('image');
             $duoi = $file->getClientOriginalExtension();
             if ($duoi != 'jpg' && $duoi != 'png') {
-                return redirect('admin/catalog/edit/'.$id.'.html')->with('loi', 'Bạn phải chọn file ảnh')->withInput();
+                return redirect('admin/catalog/edit/'.$id)->with('loi', 'Bạn phải chọn file ảnh')->withInput();
             }
             $tencu = $file->getClientOriginalName();
             do {
@@ -85,7 +85,7 @@ class CatalogController extends Controller
                 unlink('source/image/catalog/'.$tencu);
         }
         $catalog->save();
-        return redirect('admin/catalog/edit/'.$id.'.html')->with('thongbao', 'Chỉnh sửa danh mục thành công');
+        return redirect('admin/catalog/edit/'.$id)->with('thongbao', 'Chỉnh sửa danh mục thành công');
     }
     //xóa danh muc
     public function delete($id){
@@ -93,7 +93,7 @@ class CatalogController extends Controller
         if(!$catalog) return view('admin.product.error');
         Product::where('id_type',$id)->delete();
         $catalog->delete();
-        return redirect('admin/catalog/view.html')->with('thongbao','Xóa danh mục thành công');
+        return redirect('admin/catalog/view')->with('thongbao','Xóa danh mục thành công');
     }
     //xóa nhiều danh mục
     public function deleteMultiple(Request $request){

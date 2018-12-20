@@ -10,12 +10,12 @@
         <div class="horControlB menu_action">
             <ul>
 
-                <li><a href="admin/transaction/view.html">
+                <li><a href="admin/transaction/view">
                         <img src="source/backend/admin/images/icons/control/16/list.png" />
                         <span>Danh sách</span>
                     </a></li>
 
-                <li><a href="admin/tran/export.html">
+                <li><a href="admin/tran/export">
                         <img src="source/backend/admin/images/excel.png" />
                         <span>Xuất file excel</span>
                     </a></li>
@@ -63,7 +63,7 @@
                                 <td class="item"></td>
                                 <td colspan='2' style='width:60px'>
                                     <input type="submit" id="search" class="button blueB" value="Tìm kiếm" />
-                                    <input type="reset" class="basic" value="Reset" onclick="window.location.href = 'admin/transaction/view.html'; ">
+                                    <input type="reset" class="basic" value="Reset" onclick="window.location.href = 'admin/transaction/view'; ">
                                 </td>
 
 
@@ -125,11 +125,11 @@
                 <td class="textC">{{$row->note}}</td>
 
                 <td class="textC">
-                    <a href="admin/tran/chitiet/{{$row->id}}.html" value="{{$row->id}}" title="Xem chi tiết giao dịch" class="tipS chitiet" >
+                    <a href="admin/tran/chitiet/{{$row->id}}" value="{{$row->id}}" title="Xem chi tiết giao dịch" class="tipS chitiet" >
                         <img src="source/backend/admin/images/icons/color/view.png" />
                     </a>
 
-                    <a href="admin/tran/del/12.html" title="Xóa"  value="{{$row->id}}" class="tipS delete" >
+                    <a href="admin/tran/del/12" title="Xóa"  value="{{$row->id}}" class="tipS delete" >
                         <img src="source/backend/admin/images/icons/color/delete.png" />
                     </a>
                 </td>
@@ -160,7 +160,7 @@
                         Ok: {
                             btnClass: 'btn-blue',
                             action:function () {
-                                window.location.href = 'admin/transaction/delete/'+id+'.html';
+                                window.location.href = 'admin/transaction/delete/'+id;
                             }
                         },
                         Cancel: {}
@@ -176,7 +176,7 @@
                 e.preventDefault();
                 $.ajax({
                     type:'get',
-                    url:'admin/transaction/chitiet/'+$(this).attr('value')+'.html',
+                    url:'admin/transaction/chitiet/'+$(this).attr('value'),
                     success:function (data) {
                         var str = '<table cellpadding="0" cellspacing="0" ' +
                             'width="100%" class="sTable mTable myTable" id="checkAll">'+
@@ -196,10 +196,10 @@
                                 str +='<tr><td class="textC">'+value.id_order+'</td>\n'+
                                 ' <td>\n' +
                                 '                        <div class="image_thumb">\n' +
-                                '                            <img src="source/image/product/'+value.image+'" height="50">\n' +
+                                '                            <img src="source/image/product/'+value.image+'" height="70">\n' +
                                 '                        </div>\n' +
                                 '                        <div style="margin-top: 17px">\n' +
-                                '                            <a href="'+value.id_product+'/chitiet.html" class="tipS" title="" target="_blank">\n' +
+                                '                            <a href="'+value.id_product+'/chitiet" class="tipS" title="" target="_blank">\n' +
                                 '                                <b>'+value.name+'</b>\n' +
                                 '                            </a>\n' +
                                 '                        </div>\n' +
@@ -257,7 +257,7 @@
                                 action:function () {
                                     $.ajax({
                                         type: "post",
-                                        url: 'admin/transaction/deleteMultiple.html',
+                                        url: 'admin/transaction/deleteMultiple',
                                         data:{
                                             _token:$('meta[name="csrf-token"]').attr('content'),
                                             allVals:allVals
@@ -280,7 +280,7 @@
                                                     backgroundDismiss: true,
                                                 });
                                             }else{
-                                                window.location.href = 'admin/product/error.html';
+                                                window.location.href = 'admin/product/error';
                                             }
                                         }
 

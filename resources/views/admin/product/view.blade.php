@@ -9,11 +9,11 @@
 
         <div class="horControlB menu_action">
             <ul>
-                <li><a href="admin/product/add.html">
+                <li><a href="admin/product/add">
                         <img src="source/backend/admin/images/icons/control/16/add.png" />
                         <span>Thêm mới</span>
                     </a></li>
-                <li><a href="admin/product/view.html">
+                <li><a href="admin/product/view">
                         <img src="source/backend/admin/images/icons/control/16/list.png" />
                         <span>Danh sách</span>
                     </a></li>
@@ -70,7 +70,7 @@
 
                                 <td style='width:150px'>
                                     <input type="submit" class="button blueB" value="Tìm kiếm" />
-                                    <input type="reset" class="basic" value="Reset" onclick="window.location.href = 'admin/product/view.html'; ">
+                                    <input type="reset" class="basic" value="Reset" onclick="window.location.href = 'admin/product/view'; ">
                                 </td>
 
                             </tr>
@@ -112,7 +112,7 @@
 
                 <td>
                     <div class="image_thumb">
-                        <img src="source/image/product/{{$row->image}}" height="50">
+                        <img src="source/image/product/{{$row->image}}" height="70">
 
                     </div>
                     <div style="margin-top: 17px">
@@ -134,11 +134,11 @@
                 <td class="textC">{{$row->created_at}}</td>
 
                 <td class="option textC">
-                    <a href="admin/product/edit/{{$row->id}}.html" title="Chỉnh sửa" class="tipS">
+                    <a href="admin/product/edit/{{$row->id}}" title="Chỉnh sửa" class="tipS">
                         <img src="source/backend/admin/images/icons/color/edit.png" />
                     </a>
 
-                    <a href="admin/product/delete/{{$row->id}}.html" value="{{$row->id}}" title="Xóa" class="tipS delete" >
+                    <a href="admin/product/delete/{{$row->id}}" value="{{$row->id}}" title="Xóa" class="tipS delete" >
                         <img src="source/backend/admin/images/icons/color/delete.png" />
                     </a>
                 </td>
@@ -168,7 +168,7 @@
                         Ok: {
                             btnClass: 'btn-blue',
                             action:function () {
-                                window.location.href = 'admin/product/delete/'+id+'.html';
+                                window.location.href = 'admin/product/delete/'+id;
                             }
                         },
                         Cancel: {}
@@ -200,7 +200,7 @@
                                 action:function () {
                                     $.ajax({
                                         type: "post",
-                                        url: 'admin/product/deleteMultiple.html',
+                                        url: 'admin/product/deleteMultiple',
                                         data:{
                                             _token:$('meta[name="csrf-token"]').attr('content'),
                                             allVals:allVals
@@ -223,7 +223,7 @@
                                                     backgroundDismiss: true,
                                                 });
                                             }else{
-                                                window.location.href = 'admin/product/error.html';
+                                                window.location.href = 'admin/product/error';
                                             }
                                         }
 

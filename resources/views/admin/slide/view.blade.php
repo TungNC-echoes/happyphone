@@ -9,12 +9,12 @@
 
         <div class="horControlB menu_action">
             <ul>
-                <li><a href="admin/slide/add.html">
+                <li><a href="admin/slide/add">
                         <img src="source/backend/admin/images/icons/control/16/add.png" />
                         <span>Thêm mới</span>
                     </a></li>
 
-                <li><a href="admin/slide/view.html">
+                <li><a href="admin/slide/view">
                         <img src="source/backend/admin/images/icons/control/16/list.png" />
                         <span>Danh sách</span>
                     </a></li>
@@ -56,10 +56,10 @@
                     </a>
 
                     <div class="actions" style="display: none;">
-                        <a href="admin/slide/edit/{{$row->id}}.html" title="Chỉnh sửa" class="tipS">
+                        <a href="admin/slide/edit/{{$row->id}}" title="Chỉnh sửa" class="tipS">
                             <img src="source/backend/admin/images/icons/color/edit.png" /></a>
 
-                        <a href="admin/slide/delete/{{$row->id}}.html" value="{{$row->id}}" title="Xóa" class="tipS delete">
+                        <a href="admin/slide/delete/{{$row->id}}" value="{{$row->id}}" title="Xóa" class="tipS delete">
                             <img src="source/backend/admin/images/icons/color/delete.png" />
                         </a>
                     </div>
@@ -89,7 +89,7 @@
                         Ok: {
                             btnClass: 'btn-blue',
                             action:function () {
-                                window.location.href = 'admin/slide/delete/'+id+'.html';
+                                window.location.href = 'admin/slide/delete/'+id;
                             }
                         },
                         Cancel: {}

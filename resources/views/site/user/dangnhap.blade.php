@@ -7,7 +7,7 @@
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb">
-                <a href="index.html">Trang chủ</a> / <span>Đăng nhập</span>
+                <a href="index">Trang chủ</a> / <span>Đăng nhập</span>
             </div>
         </div>
         <div class="clearfix"></div>

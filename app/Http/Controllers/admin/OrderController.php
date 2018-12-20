@@ -36,7 +36,7 @@ class OrderController extends Controller
             $tran->save();
         }
         $order->delete();
-        return redirect('admin/order/view.html')->with('thongbao','Xóa đơn hàng thành công');
+        return redirect('admin/order/view')->with('thongbao','Xóa đơn hàng thành công');
     }
     //xóa nhiều đơn hàng
     public function deleteMultiple(Request $request){
@@ -68,7 +68,7 @@ class OrderController extends Controller
 //            $tran->save();
 //        }
 //        $order->delete();
-//        return redirect('admin/order/view.html')->with('thongbao','Xóa đơn hàng thành công');
+//        return redirect('admin/order/view')->with('thongbao','Xóa đơn hàng thành công');
     }
     //tìm kiếm order
     public function search(Request $request){

@@ -38,7 +38,7 @@
                         <td class="textC">{{$row->email}}</td>
 
                         <td class="option textC">
-                            <a href="admin/admin/edit/{{$row->id}}.html" title="Chỉnh sửa" class="tipS">
+                            <a href="admin/admin/edit/{{$row->id}}" title="Chỉnh sửa" class="tipS">
                                 <img src="source/backend/admin/images/icons/color/edit.png" />
                             </a>
                         </td>

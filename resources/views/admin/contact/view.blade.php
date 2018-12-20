@@ -59,7 +59,7 @@
                         <td>{{$row->message}}</td>
                         <td>{{$row->date}}</td>
                         <td class="option">
-                            <a href="admin/contact/delete/{{$row->id}}.html"  value="{{$row->id}}" title="Xóa" class="tipS delete" >
+                            <a href="admin/contact/delete/{{$row->id}}"  value="{{$row->id}}" title="Xóa" class="tipS delete" >
                                 <img src="source/backend/admin/images/icons/color/delete.png" />
                             </a>
                         </td>
@@ -88,7 +88,7 @@
                         Ok: {
                             btnClass: 'btn-blue',
                             action:function () {
-                                window.location.href = 'admin/contact/delete/'+id+'.html';
+                                window.location.href = 'admin/contact/delete/'+id;
                             }
                         },
                         Cancel: {}
@@ -120,7 +120,7 @@
                                 action:function () {
                                     $.ajax({
                                         type: "post",
-                                        url: 'admin/contact/deleteMultiple.html',
+                                        url: 'admin/contact/deleteMultiple',
                                         data:{
                                             _token:$('meta[name="csrf-token"]').attr('content'),
                                             allVals:allVals
@@ -139,7 +139,7 @@
                                                     backgroundDismiss: true,
                                                 });
                                             }else{
-                                                window.location.href = 'admin/product/error.html';
+                                                window.location.href = 'admin/product/error';
                                             }
                                         }
 

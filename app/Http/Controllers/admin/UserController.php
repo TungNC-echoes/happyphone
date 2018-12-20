@@ -31,7 +31,7 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->password = bcrypt($request->password);
         $user->save();
-        return redirect('admin/user/view.html')->with('thongbao','Thêm khách hàng mới thành công');
+        return redirect('admin/user/view')->with('thongbao','Thêm khách hàng mới thành công');
     }
     //kiểm tra email tồn tại hay chưa
     public function checkEmail(Request $request){
@@ -58,14 +58,14 @@ class UserController extends Controller
         if($request->password!='')
             $user->password = bcrypt($request->password);
         $user->save();
-        return redirect('admin/user/edit/'.$id.'.html')->with('thongbao', 'Chỉnh sửa thông tin khách hàng thành công');
+        return redirect('admin/user/edit/'.$id)->with('thongbao', 'Chỉnh sửa thông tin khách hàng thành công');
     }
     //xóa sản phẩm
     public function delete($id){
         $user = user::find($id);
         if(!$user) return view('admin.product.error');
         $user->delete();
-        return redirect('admin/user/view.html')->with('thongbao','Xóa khách hàng thành công');
+        return redirect('admin/user/view')->with('thongbao','Xóa khách hàng thành công');
     }
     //xóa nhiều khách hàng
     public function deleteMultiple(Request $request){
