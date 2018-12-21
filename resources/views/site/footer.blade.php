@@ -69,17 +69,17 @@
         </div> -->
 
         <div class="col">
-            <h4><span>perm_phone_msg</span> Hỗ trợ tư vấn</h4>
+            <h4><span></span> Hỗ trợ tư vấn</h4>
             <p>Hỗ trợ tư vấn nhiệt tình 24/7. Giúp quý khách giải tỏa thắc mắc.</p>
         </div>
 
         <div class="col">
-            <h4><span>card_giftcard</span> Quà tặng khuyến mãi</h4>
+            <h4><span></span> Quà tặng khuyến mãi</h4>
             <p>Chúng tôi thường tổ chức các chương trình khuyến mãi vào dịp lễ tết.</p>
         </div>
 
         <div class="col">
-            <h4><span>check_circle</span> Đảm bảo</h4>
+            <h4><span></span> Đảm bảo</h4>
             <p>Chúng tôi cam đoan sẽ giao hàng cho bạn trong vòng 48h đồng hồ kể từ khi xác nhận đơn đặt hàng của bạn.</p>
         </div>
     </div>

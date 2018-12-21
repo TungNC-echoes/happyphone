@@ -67,7 +67,7 @@ class ProductController extends Controller
             $file = $request->file('image');
             $duoi = $file->getClientOriginalExtension();
             if ($duoi != 'jpg' && $duoi != 'png') {
-                return redirect('admin/product/edit/'.$id.'.html')->with('loi', 'Bạn phải chọn file ảnh')->withInput();
+                return redirect('admin/product/edit/'.$id)->with('loi', 'Bạn phải chọn file ảnh')->withInput();
             }
             $tencu = $file->getClientOriginalName();
             do {
