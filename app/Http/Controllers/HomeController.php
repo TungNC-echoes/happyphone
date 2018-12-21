@@ -15,12 +15,20 @@ class HomeController extends Controller
     //
     public function index(){
         $slide = Silde::all();
-        $new_product = Product::where('new',1)->get();
-        $sanphamkhuyenmai = Product::where('promotion_price','<>',0)->get();
+        $product = Product::where('created_at', '<>', 0)->paginate(12);
+        $count_product = Product::where('created_at', '<>', 0)->get();
+        $new_product = Product::where('new',1)->paginate(12);
+        $count_new_product = Product::where('new',1)->get();
+        $sanphamkhuyenmai = Product::where('promotion_price','<>',0)->paginate(12);
+        $count_sanphamkhuyenmai = Product::where('promotion_price','<>',0)->get();
         return view('site.home.index',[
             'slide' => $slide,
+            'product' => $product,
+            'count_product' => $count_product,
             'new_product' => $new_product,
-            'sanphamkhuyenmai' => $sanphamkhuyenmai
+            'count_new_product' => $count_new_product,
+            'sanphamkhuyenmai' => $sanphamkhuyenmai,
+            'count_sanphamkhuyenmai' => $count_sanphamkhuyenmai
         ]);
     }
     //

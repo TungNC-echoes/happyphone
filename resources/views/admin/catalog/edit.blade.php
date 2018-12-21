@@ -59,7 +59,7 @@
                         <label class="formLeft">Hình ảnh:<span class="req">*</span></label>
                         <div class="formRight">
                             <div class="left">
-                                <div><img src="source/image/product/{{$catalog->image}}" style="width: 173px; height: 205px"></div>
+                                <div><img src="source/image/catalog/{{$catalog->image}}" style="width: 173px; height: 205px"></div>
                                 <div><input type="file" id="image" name="image" /></div>
                             </div>
 

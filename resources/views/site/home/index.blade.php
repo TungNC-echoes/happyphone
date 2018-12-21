@@ -1,5 +1,15 @@
 @extends('site.layout')
 @section('content')
+    <script lang="javascript">
+        var _vc_data = {id : 6489152, secret : '4b7666cae45d835d79402798aec6cf94'};
+        (
+            function()
+            {
+                var ga = document.createElement('script');ga.type = 'text/javascript';
+                ga.async=true; ga.defer=true;
+                ga.src = '//live.vnpgroup.net/client/tracking.js?id=6489152';
+                var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();
+    </script>
     <div class="fullwidthbanner-container">
         <div class="fullwidthbanner">
             <div class="bannercontainer" >
@@ -44,7 +54,7 @@
                         <div class="beta-products-list">
                             <h4>Sản phẩm mới</h4>
                             <div class="beta-products-details">
-                                <p class="pull-left">Có {{count($new_product)}} sản phẩm</p>
+                                <p class="pull-left">Có {{count($count_new_product)}} sản phẩm</p>
                                 <div class="clearfix"></div>
                             </div>
 
@@ -52,25 +62,25 @@
                                 <?php $i = 0;?>
                                 @foreach($new_product as $row)
                                     <?php $i++?>
-                                    <div class="col-sm-3 col-xs-4">
+                                    <div class="col-sm-2 col-xs-4">
                                         <div class="single-item">
                                             @if($row->promotion_price != 0)
                                                 <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                             @endif
                                             <div class="single-item-header">
                                                 <a href="{{route('chitiet',$row->id)}}">
-                                                    <img src="source/image/product/{{$row->image}}" alt="" height="220px">
+                                                    <img src="source/image/product/{{$row->image}}" alt="" height="200px">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title">{{$row->name}}</p>
                                                 @if($row->promotion_price == 0)
-                                                    <p class="single-item-price">
-                                                        <span>{{number_format($row->unit_price)}} VNĐ</span>
+                                                    <p class="single-item-price singer-item-phone">
+                                                        <span>{{number_format($row->unit_price)}} VNĐ</span><br><br>
                                                     </p>
                                                 @else
                                                     <p class="single-item-price">
-                                                        <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span>
+                                                        <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span><br>
                                                         <span class="flash-sale">{{number_format($row->promotion_price)}} VNĐ</span>
                                                     </p>
                                                 @endif
@@ -82,11 +92,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                        @if($i%4==0)
+                                        @if($i%6==0)
                                             <div class="space50">&nbsp;</div>
                                         @endif
                                 @endforeach
                             </div>
+                            <div class="row">{{$new_product->links()}}</div>
                         </div> <!-- .beta-products-list -->
 
                         <div class="space50">&nbsp;</div>
@@ -94,7 +105,7 @@
                         <div class="beta-products-list">
                             <h4>Sản phẩm khuyến mại</h4>
                             <div class="beta-products-details">
-                                <p class="pull-left">Có {{count($sanphamkhuyenmai)}} sản phẩm</p>
+                                <p class="pull-left">Có {{count($count_sanphamkhuyenmai)}} sản phẩm</p>
                                 <div class="clearfix"></div>
                             </div>
                             <?php $i = 0;?>
@@ -102,18 +113,18 @@
                             @foreach($sanphamkhuyenmai as $row)
                                 <?php $i++?>
 
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <div class="single-item">
                                         <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 
                                         <div class="single-item-header">
                                             <a href="{{route('chitiet',['id' => $row->id ])}}"><img src="source/image/product/{{$row->image}}"
-                                                                                                    alt="" height="250px"></a>
+                                                                                                    alt="" height="200px"></a>
                                         </div>
                                         <div class="single-item-body">
                                             <p class="single-item-title">{{$row->name}}</p>
                                             <p class="single-item-price">
-                                                <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span>
+                                                <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span><br>
                                                 <span class="flash-sale">{{number_format($row->promotion_price)}} VNĐ</span>
                                             </p>
                                         </div>
@@ -124,11 +135,63 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if($i%4==0)
+                                @if($i%6==0)
                                     <div class="space40">&nbsp;</div>
                                 @endif
                             @endforeach
                             </div>
+                            <div class="row">{{$sanphamkhuyenmai->links()}}</div>
+                        </div> <!-- .beta-products-list -->
+
+                        <div class="space50">&nbsp;</div>
+
+                        <div class="beta-products-list">
+                            <h4>Tất cả sản phẩm</h4>
+                            <div class="beta-products-details">
+                                <p class="pull-left">Có {{count($count_product)}} sản phẩm</p>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="row">
+                                <?php $i = 0;?>
+                                @foreach($product as $row)
+                                    <?php $i++?>
+                                    <div class="col-sm-2 col-xs-4">
+                                        <div class="single-item">
+                                            @if($row->promotion_price != 0)
+                                                <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+                                            @endif
+                                            <div class="single-item-header">
+                                                <a href="{{route('chitiet',$row->id)}}">
+                                                    <img src="source/image/product/{{$row->image}}" alt="" height="200px">
+                                                </a>
+                                            </div>
+                                            <div class="single-item-body">
+                                                <p class="single-item-title">{{$row->name}}</p>
+                                                @if($row->promotion_price == 0)
+                                                    <p class="single-item-price singer-item-phone">
+                                                        <span>{{number_format($row->unit_price)}} VNĐ</span><br><br>
+                                                    </p>
+                                                @else
+                                                    <p class="single-item-price">
+                                                        <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span><br>
+                                                        <span class="flash-sale">{{number_format($row->promotion_price)}} VNĐ</span>
+                                                    </p>
+                                                @endif
+                                            </div>
+                                            <div class="single-item-caption">
+                                                <a class="add-to-cart pull-left"  product_id="{{$row->id}}" ><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="beta-btn primary" href="{{route('chitiet',['id' => $row->id ])}}">Details <i class="fa fa-chevron-right"></i></a>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if($i%6==0)
+                                        <div class="space50">&nbsp;</div>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <div class="row">{{$product->links()}}</div>
                         </div> <!-- .beta-products-list -->
                     </div>
                 </div> <!-- end section with sidebar and main content -->
