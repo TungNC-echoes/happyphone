@@ -70,17 +70,17 @@
 
         <div class="col">
             <h4><span></span> Hỗ trợ tư vấn</h4>
-            <p>Hỗ trợ tư vấn nhiệt tình 24/7. Giúp quý khách giải tỏa thắc mắc.</p>
+            <p>Hỗ trợ tư vấn trực tuyến nhiệt tình. Giúp quý khách sớm giải tỏa thắc mắc.</p>
         </div>
 
         <div class="col">
             <h4><span></span> Quà tặng khuyến mãi</h4>
-            <p>Chúng tôi thường tổ chức các chương trình khuyến mãi vào dịp lễ tết.</p>
+            <p>Khi mua sản phẫm sẽ được nhiều phần quà khuyến mại kèm theo hấp dấn.Chúng tôi thường tổ chức các chương trình khuyến mãi vào dịp lễ tết.</p>
         </div>
 
         <div class="col">
             <h4><span></span> Đảm bảo</h4>
-            <p>Chúng tôi cam đoan sẽ giao hàng cho bạn trong vòng 48h đồng hồ kể từ khi xác nhận đơn đặt hàng của bạn.</p>
+            <p>Chúng tôi cam đoan sẽ giao hàng cho bạn trong thời gian sớm nhất kể từ khi xác nhận đơn đặt hàng của bạn.</p>
         </div>
     </div>
 

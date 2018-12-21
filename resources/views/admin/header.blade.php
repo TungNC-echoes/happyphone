@@ -3,9 +3,10 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="{{asset('')}}"/>
-    <title>Laravel</title>
-
+    <title>Admin Happy Phone</title>
+    <link rel="icon" href="{!! asset('images/gcm_ico.ico') !!}"/>
     <meta name="robots" content="noindex, nofollow" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 

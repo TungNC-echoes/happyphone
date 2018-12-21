@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel </title>
+    <title>Happy Phone</title>
     <base href="{{asset('')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-
-    <meta property="og:description"   content="Bơi hết vào đây" />
-    {{--<link rel="stylesheet" title="style" href="css/index.css">--}}
-    {{--<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>--}}
+    <link rel="icon" href="source/image/icon.png"/>
+    <meta property="og:description"   content="Happy Phone Liên Tục Nâng Cấp Chất Lượng Dịch Vụ" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="source/assets/dest/css/bootstrap.css">
     <link rel="stylesheet" href="source/assets/dest/css/intlTelInput.css">
