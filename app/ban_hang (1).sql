@@ -44,10 +44,10 @@ INSERT INTO `admins` (`id`, `user_name`, `password`, `email`, `remember_token`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bills`
+-- Table structure for table `orders`
 --
 
-CREATE TABLE `bills` (
+CREATE TABLE `orders` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_customer` int(11) DEFAULT NULL,
   `date_order` date DEFAULT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `bills` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bills`
+-- Dumping data for table `orders`
 --
 
-INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `payment`, `note`, `created_at`, `updated_at`) VALUES
+INSERT INTO `orders` (`id`, `id_customer`, `date_order`, `total`, `payment`, `note`, `created_at`, `updated_at`) VALUES
 (10, 10, '2018-02-19', 2120000, 'COD', NULL, '2018-02-19 13:35:31', '2018-02-19 13:35:31'),
 (9, 10, '2018-02-19', 2290000, 'ATM', NULL, '2018-02-19 12:21:24', '2018-02-19 12:21:24'),
 (11, 10, '2018-02-23', 770000, 'COD', 'giao hàng sớm nhé em', '2018-02-23 12:49:30', '2018-02-23 12:49:30'),
@@ -75,10 +75,10 @@ INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `payment`, `not
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bill_detail`
+-- Table structure for table `order_detail`
 --
 
-CREATE TABLE `bill_detail` (
+CREATE TABLE `order_detail` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_bill` int(10) NOT NULL,
   `id_product` int(10) NOT NULL,
@@ -89,10 +89,10 @@ CREATE TABLE `bill_detail` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bill_detail`
+-- Dumping data for table `order_detail`
 --
 
-INSERT INTO `bill_detail` (`id`, `id_bill`, `id_product`, `quantity`, `unit_price`, `created_at`, `updated_at`) VALUES
+INSERT INTO `order_detail` (`id`, `id_bill`, `id_product`, `quantity`, `unit_price`, `created_at`, `updated_at`) VALUES
 (24, 10, 8, 2, 160000, '2018-02-19 13:35:31', '2018-02-19 13:35:31'),
 (21, 9, 7, 4, 160000, '2018-02-19 12:21:24', '2018-02-19 12:21:24'),
 (22, 10, 13, 4, 300000, '2018-02-19 13:35:31', '2018-02-19 13:35:31'),
@@ -409,18 +409,18 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `bills`
+-- Indexes for table `orders`
 --
-ALTER TABLE `bills`
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `bills_ibfk_1` (`id_customer`);
+  ADD KEY `orders_ibfk_1` (`id_customer`);
 
 --
--- Indexes for table `bill_detail`
+-- Indexes for table `order_detail`
 --
-ALTER TABLE `bill_detail`
+ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `bill_detail_ibfk_2` (`id_product`);
+  ADD KEY `order_detail_ibfk_2` (`id_product`);
 
 --
 -- Indexes for table `comments`
@@ -482,14 +482,14 @@ ALTER TABLE `users`
 ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `bills`
+-- AUTO_INCREMENT for table `orders`
 --
-ALTER TABLE `bills`
+ALTER TABLE `orders`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
--- AUTO_INCREMENT for table `bill_detail`
+-- AUTO_INCREMENT for table `order_detail`
 --
-ALTER TABLE `bill_detail`
+ALTER TABLE `order_detail`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `comments`

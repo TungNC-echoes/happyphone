@@ -12,12 +12,12 @@ class OrderController extends Controller
 {
     //
     public function view(){
-        $orders = DB::table('bill_detail')->join('products','products.id','bill_detail.id_product')
-            ->join('bills','bills.id','bill_detail.id_bill')
-            ->selectRaw('products.id as id_product,products.*,bill_detail.id as id_order,bill_detail.*');
+        $orders = DB::table('order_detail')->join('products','products.id','order_detail.id_product')
+            ->join('orders','orders.id','order_detail.id_bill')
+            ->selectRaw('products.id as id_product,products.*,order_detail.id as id_order,order_detail.*');
         //var_dump($order->get());
         $total = count($orders->get());
-        $orders = $orders->orderBy('bill_detail.id_bill')->paginate(10);
+        $orders = $orders->orderBy('order_detail.id_bill')->paginate(10);
         return view('admin.order.view',[
             'orders' => $orders,
             'total' => $total
@@ -72,14 +72,14 @@ class OrderController extends Controller
     }
     //tìm kiếm order
     public function search(Request $request){
-        $orders = DB::table('bill_detail')->join('products','products.id','bill_detail.id_product')
-            ->join('bills','bills.id','bill_detail.id_bill')
-            ->where('bill_detail.created_at','>=',date('Y-m-d',strtotime($request->date_from)))
-            ->where('bill_detail.created_at','<=',date('Y-m-d',strtotime($request->date_to)))
-            ->selectRaw('products.id as id_product,products.*,bill_detail.id as id_order,bill_detail.*');
+        $orders = DB::table('order_detail')->join('products','products.id','order_detail.id_product')
+            ->join('orders','orders.id','order_detail.id_bill')
+            ->where('order_detail.created_at','>=',date('Y-m-d',strtotime($request->date_from)))
+            ->where('order_detail.created_at','<=',date('Y-m-d',strtotime($request->date_to)))
+            ->selectRaw('products.id as id_product,products.*,order_detail.id as id_order,order_detail.*');
         //var_dump($order->get());
         $total = count($orders->get());
-        $orders = $orders->orderBy('bill_detail.id_bill')->paginate(10);
+        $orders = $orders->orderBy('order_detail.id_bill')->paginate(10);
         return view('admin.order.view',[
             'orders' => $orders,
             'total' => $total
