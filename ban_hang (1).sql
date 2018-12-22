@@ -344,10 +344,10 @@ INSERT INTO `slide` (`id`, `link`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_products`
+-- Table structure for table `categories`
 --
 
-CREATE TABLE `type_products` (
+CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
@@ -357,10 +357,10 @@ CREATE TABLE `type_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `type_products`
+-- Dumping data for table `categories`
 --
 
-INSERT INTO `type_products` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
+INSERT INTO `categories` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
 (1, 'IPHONE', 'Đọc xong tiêu đề và đoạn trên chắc hẳn nhiều bạn sẽ cho rằng mình là một SamFan mà không cần xem tiếp bên dưới. Vậy thì bạn nhầm, mình vẫn là iFan và đang dùng song song Galaxy Note 9 và iPhone X, mấy năm nay xung quanh mình dùng nhiều đồ của Apple hơn Samsung, từ máy tính MacBook Pro, iMac, chuột Magic Mouse, phím, Apple TV, iPhone X, Apple Watch S3 và các bộ phát wi-fi Airport Extreme & Express ở cả công ty lẫn gia đình.\r\n\r\nRiêng iPhone với iOS luôn được mình đánh giá là có độ ổn định và hiệu năng tốt nhất so với Android, cả phiên bản Android mới nhất là Oreo 8.1. Vậy thì bài viết này “PR\' cho Samsung? - Bài này khó lấy được tiền PR vì có rất ít cái Samsung muốn, như cấu hình, khẩu độ camera, pin, Samsung Pay, Samsung Elite... Nếu không tin bạn cứ đọc tiếp nhé...', 'dTMGip7plus_h.jpg', '2018-12-05 17:00:00', '2018-12-21 03:14:15'),
 (2, 'SAMSUNG', 'Thiết kế quen thuộc\r\nSamsung Galaxy J8 vẫn sở hữu một lối thiết kế đậm chất Samsung với sự mềm mại, uyển chuyển nhưng vẫn khá thanh thoát đến từng góc cạnh của máy. Máy được hoàn thiệt với thiết kế nguyên khối nên máy cho khả năng cầm nắm chắc chắn và rất đầm tay. Cảm biến vân tay được đặt ở một vị trí thuận lợi ở mặt lưng giúp bạn mở khóa máy một cách thuận tiện và dễ dàng.', 'gFlAsss9.jpg', '2016-10-12 02:16:15', '2018-12-21 03:15:39'),
 (3, 'NOKIA', 'Android nguyên bản\r\nĐiện thoại thông minh Nokia đi kèm với Android™ phiên bản mới nhất hoàn toàn không có ứng dụng không cần thiết và được cập nhật bảo mật thường xuyên. Điều này giúp mang lại trải nghiệm 100% nguyên bản, bảo mật và luôn cập nhật.', 'EUbInokiax7.jpg', '2016-10-18 00:33:33', '2018-12-21 03:16:34'),
@@ -460,9 +460,9 @@ ALTER TABLE `slide`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `type_products`
+-- Indexes for table `categories`
 --
-ALTER TABLE `type_products`
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -517,9 +517,9 @@ ALTER TABLE `products`
 ALTER TABLE `slide`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `type_products`
+-- AUTO_INCREMENT for table `categories`
 --
-ALTER TABLE `type_products`
+ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
@@ -534,7 +534,7 @@ ALTER TABLE `users`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_id_type_foreign` FOREIGN KEY (`id_type`) REFERENCES `type_products` (`id`);
+  ADD CONSTRAINT `products_id_type_foreign` FOREIGN KEY (`id_type`) REFERENCES `categories` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

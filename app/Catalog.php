@@ -26,5 +26,5 @@ use Illuminate\Database\Eloquent\Model;
 class Catalog extends Model
 {
     //
-    protected $table = 'type_products';
+    protected $table = 'categories';
 }
