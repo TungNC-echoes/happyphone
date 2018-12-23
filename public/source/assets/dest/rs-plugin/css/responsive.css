@@ -80,8 +80,20 @@ html {
 
    @media only screen and (min-width: 0px) and (max-width: 479px) {
 			.banner, .bannercontainer		{	width:100%;height:166px;	}.tp-rightarrow.navbar{top:-37px!important;}.tp-leftarrow.navbar{top:-37px!important;}
-
-
+	   .single-item-title {
+		   font-size: 11px !important;
+		   margin-bottom: 5px !important;
+	   }
+	   .single-item-price {
+		   font-size: 11px !important;
+		   color: #000 !important;
+	   }
+	   .single-item-header a img {
+		   height: 125px;
+	   }
+	   .add-to-cart i {
+		   font-size: 15px;
+	   }
 
 
    }

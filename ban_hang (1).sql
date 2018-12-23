@@ -44,10 +44,10 @@ INSERT INTO `admins` (`id`, `user_name`, `password`, `email`, `remember_token`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bills`
+-- Table structure for table `orders`
 --
 
-CREATE TABLE `bills` (
+CREATE TABLE `orders` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_customer` int(11) DEFAULT NULL,
   `date_order` date DEFAULT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `bills` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bills`
+-- Dumping data for table `orders`
 --
 
-INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `payment`, `note`, `created_at`, `updated_at`) VALUES
+INSERT INTO `orders` (`id`, `id_customer`, `date_order`, `total`, `payment`, `note`, `created_at`, `updated_at`) VALUES
 (10, 10, '2018-02-19', 2120000, 'COD', NULL, '2018-02-19 13:35:31', '2018-02-19 13:35:31'),
 (9, 10, '2018-02-19', 2290000, 'ATM', NULL, '2018-02-19 12:21:24', '2018-02-19 12:21:24'),
 (11, 10, '2018-02-23', 770000, 'COD', 'giao hàng sớm nhé em', '2018-02-23 12:49:30', '2018-02-23 12:49:30'),
@@ -75,10 +75,10 @@ INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `payment`, `not
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bill_detail`
+-- Table structure for table `order_detail`
 --
 
-CREATE TABLE `bill_detail` (
+CREATE TABLE `order_detail` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_bill` int(10) NOT NULL,
   `id_product` int(10) NOT NULL,
@@ -89,10 +89,10 @@ CREATE TABLE `bill_detail` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bill_detail`
+-- Dumping data for table `order_detail`
 --
 
-INSERT INTO `bill_detail` (`id`, `id_bill`, `id_product`, `quantity`, `unit_price`, `created_at`, `updated_at`) VALUES
+INSERT INTO `order_detail` (`id`, `id_bill`, `id_product`, `quantity`, `unit_price`, `created_at`, `updated_at`) VALUES
 (24, 10, 8, 2, 160000, '2018-02-19 13:35:31', '2018-02-19 13:35:31'),
 (21, 9, 7, 4, 160000, '2018-02-19 12:21:24', '2018-02-19 12:21:24'),
 (22, 10, 13, 4, 300000, '2018-02-19 13:35:31', '2018-02-19 13:35:31'),
@@ -344,10 +344,10 @@ INSERT INTO `slide` (`id`, `link`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_products`
+-- Table structure for table `categories`
 --
 
-CREATE TABLE `type_products` (
+CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
@@ -357,10 +357,10 @@ CREATE TABLE `type_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `type_products`
+-- Dumping data for table `categories`
 --
 
-INSERT INTO `type_products` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
+INSERT INTO `categories` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
 (1, 'IPHONE', 'Đọc xong tiêu đề và đoạn trên chắc hẳn nhiều bạn sẽ cho rằng mình là một SamFan mà không cần xem tiếp bên dưới. Vậy thì bạn nhầm, mình vẫn là iFan và đang dùng song song Galaxy Note 9 và iPhone X, mấy năm nay xung quanh mình dùng nhiều đồ của Apple hơn Samsung, từ máy tính MacBook Pro, iMac, chuột Magic Mouse, phím, Apple TV, iPhone X, Apple Watch S3 và các bộ phát wi-fi Airport Extreme & Express ở cả công ty lẫn gia đình.\r\n\r\nRiêng iPhone với iOS luôn được mình đánh giá là có độ ổn định và hiệu năng tốt nhất so với Android, cả phiên bản Android mới nhất là Oreo 8.1. Vậy thì bài viết này “PR\' cho Samsung? - Bài này khó lấy được tiền PR vì có rất ít cái Samsung muốn, như cấu hình, khẩu độ camera, pin, Samsung Pay, Samsung Elite... Nếu không tin bạn cứ đọc tiếp nhé...', 'dTMGip7plus_h.jpg', '2018-12-05 17:00:00', '2018-12-21 03:14:15'),
 (2, 'SAMSUNG', 'Thiết kế quen thuộc\r\nSamsung Galaxy J8 vẫn sở hữu một lối thiết kế đậm chất Samsung với sự mềm mại, uyển chuyển nhưng vẫn khá thanh thoát đến từng góc cạnh của máy. Máy được hoàn thiệt với thiết kế nguyên khối nên máy cho khả năng cầm nắm chắc chắn và rất đầm tay. Cảm biến vân tay được đặt ở một vị trí thuận lợi ở mặt lưng giúp bạn mở khóa máy một cách thuận tiện và dễ dàng.', 'gFlAsss9.jpg', '2016-10-12 02:16:15', '2018-12-21 03:15:39'),
 (3, 'NOKIA', 'Android nguyên bản\r\nĐiện thoại thông minh Nokia đi kèm với Android™ phiên bản mới nhất hoàn toàn không có ứng dụng không cần thiết và được cập nhật bảo mật thường xuyên. Điều này giúp mang lại trải nghiệm 100% nguyên bản, bảo mật và luôn cập nhật.', 'EUbInokiax7.jpg', '2016-10-18 00:33:33', '2018-12-21 03:16:34'),
@@ -409,18 +409,18 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `bills`
+-- Indexes for table `orders`
 --
-ALTER TABLE `bills`
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `bills_ibfk_1` (`id_customer`);
+  ADD KEY `orders_ibfk_1` (`id_customer`);
 
 --
--- Indexes for table `bill_detail`
+-- Indexes for table `order_detail`
 --
-ALTER TABLE `bill_detail`
+ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `bill_detail_ibfk_2` (`id_product`);
+  ADD KEY `order_detail_ibfk_2` (`id_product`);
 
 --
 -- Indexes for table `comments`
@@ -460,9 +460,9 @@ ALTER TABLE `slide`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `type_products`
+-- Indexes for table `categories`
 --
-ALTER TABLE `type_products`
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -482,14 +482,14 @@ ALTER TABLE `users`
 ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `bills`
+-- AUTO_INCREMENT for table `orders`
 --
-ALTER TABLE `bills`
+ALTER TABLE `orders`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
--- AUTO_INCREMENT for table `bill_detail`
+-- AUTO_INCREMENT for table `order_detail`
 --
-ALTER TABLE `bill_detail`
+ALTER TABLE `order_detail`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `comments`
@@ -517,9 +517,9 @@ ALTER TABLE `products`
 ALTER TABLE `slide`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `type_products`
+-- AUTO_INCREMENT for table `categories`
 --
-ALTER TABLE `type_products`
+ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
@@ -534,7 +534,7 @@ ALTER TABLE `users`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_id_type_foreign` FOREIGN KEY (`id_type`) REFERENCES `type_products` (`id`);
+  ADD CONSTRAINT `products_id_type_foreign` FOREIGN KEY (`id_type`) REFERENCES `categories` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

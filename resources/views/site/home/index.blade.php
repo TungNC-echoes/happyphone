@@ -113,7 +113,7 @@
                             @foreach($sanphamkhuyenmai as $row)
                                 <?php $i++?>
 
-                                <div class="col-sm-2">
+                                <div class="col-sm-2 col-xs-4">
                                     <div class="single-item">
                                         <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 

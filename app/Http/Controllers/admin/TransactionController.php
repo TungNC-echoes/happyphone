@@ -12,8 +12,8 @@ class TransactionController extends Controller
 {
     //
     public function view(){
-        $tran = DB::table('bills')->join('users','bills.id_customer','users.id')
-                ->selectRaw('users.full_name as name,bills.*');
+        $tran = DB::table('orders')->join('users','orders.id_customer','users.id')
+                ->selectRaw('users.full_name as name,orders.*');
         $total = count($tran->get());
         $tran = $tran->paginate(5);
         return view('admin.transaction.view',[
@@ -23,9 +23,9 @@ class TransactionController extends Controller
     }
     //
     public function chitiet($id){
-        $order = DB::table('bill_detail')->join('products','products.id','bill_detail.id_product')
-            ->where('bill_detail.id_bill',$id)
-            ->selectRaw('products.id as id_product,products.*,bill_detail.id as id_order,bill_detail.*')
+        $order = DB::table('order_detail')->join('products','products.id','order_detail.id_product')
+            ->where('order_detail.id_bill',$id)
+            ->selectRaw('products.id as id_product,products.*,order_detail.id as id_order,order_detail.*')
             ->get();
         return response()->json($order);
     }
@@ -111,10 +111,10 @@ class TransactionController extends Controller
     }
     //tìm kiếm transaction
     public function search(Request $request){
-        $tran = DB::table('bills')->join('users','bills.id_customer','users.id')
+        $tran = DB::table('orders')->join('users','orders.id_customer','users.id')
             ->where('date_order','>=',date('Y-m-d',strtotime($request->date_from)))
             ->where('date_order','<=',date('Y-m-d',strtotime($request->date_to)))
-            ->selectRaw('users.full_name as name,bills.*');
+            ->selectRaw('users.full_name as name,orders.*');
         //var_dump($tran->get());
         $total = count($tran->get());
         $tran = $tran->paginate(5);

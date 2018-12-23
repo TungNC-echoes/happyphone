@@ -44,8 +44,8 @@ class HomeController extends Controller
     public function getSanPham($id){
         $product = Product::find($id);
         $new_product = Product::where('new',0)->take(4)->get();
-        $bestsell = DB::table('bill_detail')
-            ->join('products','products.id', '=', 'bill_detail.id_product')
+        $bestsell = DB::table('order_detail')
+            ->join('products','products.id', '=', 'order_detail.id_product')
             ->select('products.id','products.name','products.unit_price','products.promotion_price','products.image',
                 DB::raw('count(products.id)'))
             ->groupBy('products.id','products.name','products.unit_price','products.promotion_price','products.image')

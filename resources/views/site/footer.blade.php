@@ -1,9 +1,8 @@
 ﻿<style>
     [view=footer] {
         display: flex;
-        flex-flow: column nowrap;
         align-items: center;
-
+        flex-flow: nowrap;
         background: rgb(37, 57, 81);
 
         padding-top: 40px;
@@ -57,30 +56,27 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
     <div class="main">
-        <div class="col">
-            <h4>Like và share</h4>
-            <center><div class="fb-like" data-width="50" data-href="http://websitebanhang.gq/index"
-                         data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-            </center>
-        </div>
-        <!-- <div class="col">
-            <h4><span>flight</span> Giao hàng qua nước ngoài</h4>
-            <p>Chúng tôi có hỗ trợ giao hàng qua nước ngoài với chi phí ship phù hợp với mọi loại đối tượng.</p>
-        </div> -->
+        <div class="row">
+            <div class="col-md-3 col-xs-6">
+                <h4>Like và share</h4>
+                <div class="fb-like" data-href="http://websitebanhang.gq/index"
+                             data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 
-        <div class="col">
-            <h4><span></span> Hỗ trợ tư vấn</h4>
-            <p>Hỗ trợ tư vấn trực tuyến nhiệt tình. Giúp quý khách sớm giải tỏa thắc mắc.</p>
-        </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+                <h4><span></span> Hỗ trợ tư vấn</h4>
+                <p>Hỗ trợ tư vấn trực tuyến nhiệt tình. Giúp quý khách sớm giải tỏa thắc mắc.</p>
+            </div>
 
-        <div class="col">
-            <h4><span></span> Quà tặng khuyến mãi</h4>
-            <p>Khi mua sản phẫm sẽ được nhiều phần quà khuyến mại kèm theo hấp dấn.Chúng tôi thường tổ chức các chương trình khuyến mãi vào dịp lễ tết.</p>
-        </div>
+            <div class="col-md-3 col-xs-6">
+                <h4><span></span> Quà tặng khuyến mãi</h4>
+                <p>Khi mua sản phẫm sẽ được nhiều phần quà khuyến mại kèm theo hấp dấn.Chúng tôi thường tổ chức các chương trình khuyến mãi vào dịp lễ tết.</p>
+            </div>
 
-        <div class="col">
-            <h4><span></span> Đảm bảo</h4>
-            <p>Chúng tôi cam đoan sẽ giao hàng cho bạn trong thời gian sớm nhất kể từ khi xác nhận đơn đặt hàng của bạn.</p>
+            <div class="col-md-3 col-xs-6">
+                <h4><span></span> Đảm bảo</h4>
+                <p>Chúng tôi cam đoan sẽ giao hàng cho bạn trong thời gian sớm nhất kể từ khi xác nhận đơn đặt hàng của bạn.</p>
+            </div>
         </div>
     </div>
 

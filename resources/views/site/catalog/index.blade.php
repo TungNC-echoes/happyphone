@@ -34,26 +34,28 @@
                             </div>
 
                             <div class="row">
+                                <?php $i = 0;?>
                                 @foreach($product_theoloaisp as $row)
-                                    <div class="col-sm-4">
+                                    <?php $i++?>
+                                    <div class="col-sm-3 col-xs-4">
                                         <div class="single-item">
                                             @if($row->promotion_price != 0)
                                                 <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                             @endif
                                             <div class="single-item-header">
                                                 <a href="{{route('chitiet',$row->id)}}">
-                                                    <img src="source/image/product/{{$row->image}}" alt="" height="250px">
+                                                    <img src="source/image/product/{{$row->image}}" alt="" height="200px">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title">{{$row->name}}</p>
                                                 @if($row->promotion_price == 0)
                                                     <p class="single-item-price">
-                                                        <span>{{number_format($row->unit_price)}} VNĐ</span>
+                                                        <span>{{number_format($row->unit_price)}} VNĐ</span><br><br>
                                                     </p>
                                                 @else
                                                     <p class="single-item-price">
-                                                        <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span>
+                                                        <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span><br>
                                                         <span class="flash-sale">{{number_format($row->promotion_price)}} VNĐ</span>
                                                     </p>
                                                 @endif
@@ -78,26 +80,28 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="row">
+                                <?php $i=0 ?>
                                 @foreach($sanphamkhuyenmai as $row)
-                                <div class="col-sm-4">
+                                    <?php $i++ ?>
+                                <div class="col-sm-3 col-xs-4">
                                     <div class="single-item">
                                         @if($row->promotion_price != 0)
                                             <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                         @endif
                                         <div class="single-item-header">
                                             <a href="{{route('chitiet',$row->id)}}">
-                                                <img src="source/image/product/{{$row->image}}" alt="" height="250px">
+                                                <img src="source/image/product/{{$row->image}}" alt="" height="200px">
                                             </a>
                                         </div>
                                         <div class="single-item-body">
                                             <p class="single-item-title">{{$row->name}}</p>
                                             @if($row->promotion_price == 0)
                                                 <p class="single-item-price">
-                                                    <span>{{number_format($row->unit_price)}} VNĐ</span>
+                                                    <span>{{number_format($row->unit_price)}} VNĐ</span><br><br>
                                                 </p>
                                             @else
                                                 <p class="single-item-price">
-                                                    <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span>
+                                                    <span class="flash-del">{{number_format($row->unit_price)}} VNĐ</span><br>
                                                     <span class="flash-sale">{{number_format($row->promotion_price)}} VNĐ</span>
                                                 </p>
                                             @endif
@@ -109,6 +113,9 @@
                                             </div>
                                     </div>
                                 </div>
+                                        @if($i%4==0)
+                                            <div class="space50">&nbsp;</div>
+                                        @endif
                                 @endforeach
                             </div>
 
