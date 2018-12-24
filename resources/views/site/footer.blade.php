@@ -2,7 +2,7 @@
     [view=footer] {
         display: flex;
         align-items: center;
-        flex-flow: nowrap;
+        flex-flow: column nowrap;
         background: rgb(37, 57, 81);
 
         padding-top: 40px;

@@ -31,7 +31,7 @@
 @include('site.footer')
 <div class="copyright">
     <div class="container">
-        <p class="pull-left">TungNC. (&copy;) 2018</p>
+        <p class="center">TungNC. (&copy;) 2018</p>
         <p class="pull-right pay-options">
         </p>
         <div class="clearfix"></div>

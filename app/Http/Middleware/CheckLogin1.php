@@ -19,7 +19,7 @@ class CheckLogin1
         if(Auth::check()){
             return $next($request);
         }
-        return redirect('dang-nhap.html');
+        return redirect('dang-nhap');
 
     }
 }
