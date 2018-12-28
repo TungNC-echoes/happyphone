@@ -15,7 +15,12 @@ class CartController extends Controller
         if(!Auth::check())
             return null;
         $product = Product::find($id);
-        Cart::add(array('id' => $id, 'name' => $product->name, 'qty' => $value, 'price' => $product->unit_price,'option'=>$product->image));
+        if (!empty($product['promotion_price'])) {
+            $price = $product->promotion_price;
+        } else {
+            $price = $product->unit_price;
+        }
+        Cart::add(array('id' => $id, 'name' => $product->name, 'qty' => $value, 'price' => $price,'option'=>$product->image));
         $cart = Cart::content();
         foreach ($cart as $row){
             $image = Product::find($row->id)->image;
