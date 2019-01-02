@@ -94,9 +94,40 @@ html {
 	   .add-to-cart i {
 		   font-size: 15px;
 	   }
+	   .main-menu ul {
+		   width: 100%;
+		   background: #fff;
+	   }
+	   .main-menu ul li.active> a, .main-menu ul li.hover> a{background:#3a5c83; color:white!important;}
+	   .sub-menu li.active, .children li.active{background:#3a5c83; color:white!important;}
+	   .main-menu ul li a{color:black!important; padding-left: 20px; font-size: 14px}
+	   .main-menu ul li.visited a {
+		   color: white!important;
+	   }
 
 
    }
+.fixNav{
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100000000;
+}
+.cart-body{
+	z-index:999;
+}
+.inner-header{
+	background-color: #ffffff
+}
+.inner-title,.beta-breadcrumb, .beta-breadcrumb a{
+	color: black
+}
+.main-menu>ul.l-inline> li> a{
+	/*color: #fff;*/
+	padding: 10px 35px
+}
+
 
 
 
