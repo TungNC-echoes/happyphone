@@ -5068,7 +5068,7 @@ transition: all 0.17s ease-in-out;
     -webkit-transition: all 0.17s ease-in-out;
     -o-transition: all 0.17s ease-in-out;
     -webkit-backface-visibility: hidden;}
-.sub-menu{z-index:999;top: 31px;
+.sub-menu{z-index:999;
 transition: all 0.17s ease-in-out;
     -moz-transition: all 0.17s ease-in-out;
     -webkit-transition: all 0.17s ease-in-out;
@@ -5132,9 +5132,11 @@ font-size: 35px;}
 .beta-pricing span.beta-price-button{float:left;width:100%;background:white;text-align:center;border-top: 1px solid #e1e1e1;padding: 30px 0;background-color: #f6f6f6; float:left;border-left: 1px solid #e1e1e1;border-right: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;}
 .beta-pricing span.beta-price-button a{background: #406590;}
 
-.main-menu ul li.active> a{background:#3a5c83; color:white!important;}
+.main-menu ul li.active> a, .main-menu ul li.hover> a{background:#3a5c83; color:white!important;}
 .sub-menu li.active, .children li.active{background:#3a5c83; color:white!important;}
-.sub-menu li a, .children li a{font-size:14px;}
+.main-menu ul li a{color:white;}
+.sub-menu li a, .children li a{font-size:14px; color:black !important}
+.sub-menu li:hover a {color:white !important;}
 .sub-menu{width:240px;}
 #logo{padding-right: 7px;}
 .beta-highlight{background-color:#3a5c83;}

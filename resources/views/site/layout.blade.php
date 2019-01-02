@@ -18,7 +18,6 @@
     <link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
     <link rel="stylesheet" href="source/assets/dest/css/animate.css">
     <link rel="stylesheet" href="source/assets/dest/css/error.css">
-    <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
     <link rel="stylesheet" href="source/assets/dest/css/jquery-confirm.min.css">
 
 </head>

@@ -24,7 +24,7 @@
     <div class="header-body">
         <div class="container beta-relative">
             <div class="pull-left">
-                <a href="index" id="logo"><img style="opacity: 0" src="source/assets/dest/images/logo-cake.png" width="200px" alt=""></a>
+                <a href="index" id="logo"><img style="opacity: 1" src="source/assets/dest/images/phone.png" width="200px" alt=""></a>
             </div>
             <div class="pull-right beta-components space-left ov">
                 <div class="space10">&nbsp;</div>
@@ -46,12 +46,13 @@
     </div> <!-- .header-body -->
     <div class="header-bottom" style="background-color: #0277b8;">
         <div class="container">
-            <a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>
+            <a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text white'>Menu</span></a>
             <div class="visible-xs clearfix"></div>
             <nav class="main-menu">
-                <ul class="l-inline ov">
+                <ul class="nav nav-pills">
                     <li><a href="{{route('trangchu')}}">Trang chủ</a></li>
-                    <li><a>Sản phẩm</a>
+                    <li>
+                        <a>Sản phẩm <span class="badge"><?=count($loaisp) ?></span></a>
                         <ul class="sub-menu">
                             @foreach($loaisp as $row)
                                 <li><a href="{{route('loaisp',['id' => $row->id])}}">{{$row->name}}</a></li>
