@@ -52,6 +52,20 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="beta-products-list">
+                            <form action="" method="get">
+                                <div>
+                                    <h6>Lọc Theo Giá: </h6>
+                                    <div class="filter-cost">
+                                        <label for="min">Từ: </label>
+                                        <input type="number" class="bg-gray" placeholder="Min: VNĐ" name="min" value="<?php if (!empty($min)) { echo $min;} ?>">
+                                    </div>
+                                    <div class="filter-cost">
+                                        <label for="max">Đến: </label>
+                                        <input type="number" class="bg-gray" placeholder="Max: VNĐ" name="max" value="<?php if (!empty($max)) { echo $max;} ?>">
+                                    </div>
+                                    <button type="submit" class="btn fa fa-play" style="margin-bottom: 3.5px"></button>
+                                </div>
+                            </form>
                             <h4>Sản phẩm mới</h4>
                             <div class="beta-products-details">
                                 <p class="pull-left">Có {{count($count_new_product)}} sản phẩm</p>
@@ -97,7 +111,7 @@
                                         @endif
                                 @endforeach
                             </div>
-                            <div class="row">{{$new_product->links()}}</div>
+                            <div class="row">{{$new_product->appends(request()->input())->links()}}</div>
                         </div> <!-- .beta-products-list -->
 
                         <div class="space50">&nbsp;</div>
@@ -140,7 +154,7 @@
                                 @endif
                             @endforeach
                             </div>
-                            <div class="row">{{$sanphamkhuyenmai->links()}}</div>
+                            <div class="row">{{$sanphamkhuyenmai->appends(request()->input())->links()}}</div>
                         </div> <!-- .beta-products-list -->
 
                         <div class="space50">&nbsp;</div>
@@ -191,7 +205,7 @@
                                     @endif
                                 @endforeach
                             </div>
-                            <div class="row">{{$product->links()}}</div>
+                            <div class="row">{{$product->appends(request()->input())->links()}}</div>
                         </div> <!-- .beta-products-list -->
                     </div>
                 </div> <!-- end section with sidebar and main content -->
@@ -199,3 +213,17 @@
         </div> <!-- #content -->
     </div> <!-- .container -->
 @endsection
+
+<style>
+    .filter-cost {
+        display: inline-block;
+        padding: 5px 10px;
+    }
+    .filter-cost label {
+        width: 30px;
+        margin-right: 10px;
+    }
+    .filter-cost input {
+
+    }
+</style>
