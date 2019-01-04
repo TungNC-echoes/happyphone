@@ -1,0 +1,15 @@
+Do đây là project Laravel nên yêu cầu cần cài đặt:
+1. Yêu cầu:
+	-	PHP >= 7.0.0
+	-	Webserver trên Windows: Xampp
+	- 	IDE hỗ trợ như PHPStorm
+	- 	Quan trọng là Composer
+2. Cài đặt: 
+	- 	Bật Xampp
+	- 	Vào phpmyadmin tạo csdl là happyphone
+	-	Bật IDE và import project
+	-	Chạy lệnh php artisan server
+	-	Chạy composer update
+	-	Chạy php artisan migate
+	-	Vào csdl và import các bảng từ file happyphone.sql
+	-	Chạy project trên trình duyệt ở cổng 8000
