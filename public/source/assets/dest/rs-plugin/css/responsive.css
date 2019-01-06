@@ -104,6 +104,27 @@ html {
 	   .main-menu ul li.visited a {
 		   color: white!important;
 	   }
+	   .auto-width-left {
+		   width: 50% !important;
+	   }
+	   .auto-width-right {
+		   width: 50% !important;
+	   }
+	   .beta-btn.primary {
+		   padding: 3.5px 3px !important;
+	   }
+	   .add-to-cart {
+		   height: 22px !important;
+		   width: 25px !important;
+	   }
+	   .add-to-cart i {
+		   font-size: 13px !important;
+		   line-height: 19px !important;
+	   }
+	   .so-luong{
+		   width: 37px !important;
+		   height: 23px !important;
+	   }
 
 
    }
@@ -127,7 +148,9 @@ html {
 	/*color: #fff;*/
 	padding: 10px 35px
 }
-
+.so-luong{
+	width: 70px;height: 34px
+}
 
 
 

@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="beta-breadcrumb">
-                        <h4><span >Thông tin cá nhân</span> / <a href="{{route('thaydoitk')}}">Thay đổi</a></h4>
+                        <h4><span >Thông tin cá nhân</span> / <a href="{{route('thaydoitk')}}" style="color: black!important;">Thay đổi</a></h4>
                     </div>
                     <div class="space20">&nbsp;</div>
 

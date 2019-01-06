@@ -51,7 +51,7 @@
         <div class="col-12">
             <div class="col-md-3 col-xs-6">
                 <h4>Like và share</h4>
-                <div class="fb-like" data-href="http://websitebanhang.gq/index" width="100"
+                <div class="fb-like" data-href="http://happyphone.com/index" width="100"
                              data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 <div id="fb-root"></div>
                 <script>(function(d, s, id) {

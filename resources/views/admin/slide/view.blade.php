@@ -51,7 +51,7 @@
                 @foreach($slide as $row)
                 <li id={{$row->id}}>
 
-                    <a class="lightbox" title="Slide {{$row->id}}" href="source/image/slide/banner1.jpg" >
+                    <a class="lightbox" title="Slide {{$row->id}}" href="source/image/slide/{{$row->image}}" >
                         <img src="source/image/slide/{{$row->image}}"   width='280px' />
                     </a>
 

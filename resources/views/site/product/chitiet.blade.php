@@ -6,10 +6,10 @@
                 <div class="col-sm-9">
 
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 col-xs-5">
                             <img src="source/image/product/{{$product->image}}" alt="">
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 col-xs-7">
                             <div class="single-item-body">
                                 <p class="single-item-title"><b>{{$product->name}}</b></p>
                                 @if($product->promotion_price == 0)
@@ -29,7 +29,7 @@
 
                             <p>Số lượng:</p>
                             <div class="single-item-options">
-                                <input type="number" min="1" value="1" style="width: 70px;height: 34px">
+                                <input type="number" min="1" value="1" class="so-luong">
                                 <a class="add-to-cart" product_id="{{$product->id}}" href=""><i
                                             class="fa fa-shopping-cart"></i></a>
                                 <div class="clearfix"></div>
@@ -86,7 +86,7 @@
 
                             <div class="row">
                                 @foreach($sanphamtt as $row)
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-3 col-xs-4">
                                         <div class="single-item">
                                             @if($row->promotion_price != 0)
                                                 <div class="ribbon-wrapper">
@@ -96,19 +96,19 @@
                                             <div class="single-item-header">
                                                 <a href="{{route('chitiet',$row->id)}}">
                                                     <img src="source/image/product/{{$row->image}}" alt=""
-                                                         height="250px">
+                                                         height="200px">
                                                 </a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title">{{$row->name}}</p>
                                                 @if($row->promotion_price == 0)
                                                     <p class="single-item-price">
-                                                        <span>{{number_format($row->unit_price)}} VNĐ</span>
+                                                        <span>{{number_format($row->unit_price)}} VNĐ</span><br><br>
                                                     </p>
                                                 @else
                                                     <p class="single-item-price">
                                                     <span class="flash-del">{{number_format($row->unit_price)}}
-                                                        VNĐ</span>
+                                                        VNĐ</span><br>
                                                         <span class="flash-sale">{{number_format($row->promotion_price)}}
                                                             VNĐ</span>
                                                     </p>
