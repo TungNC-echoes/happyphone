@@ -15,12 +15,43 @@ class HomeController extends Controller
     //
     public function index(){
         $slide = Silde::all();
-        $product = Product::where('created_at', '<>', 0)->paginate(12);
-        $count_product = Product::where('created_at', '<>', 0)->get();
-        $new_product = Product::where('new',1)->paginate(12);
-        $count_new_product = Product::where('new',1)->get();
-        $sanphamkhuyenmai = Product::where('promotion_price','<>',0)->paginate(12);
-        $count_sanphamkhuyenmai = Product::where('promotion_price','<>',0)->get();
+        $min = '';
+        $max = '';
+        if (isset($_GET['min']) || isset($_GET['max'])) {
+            if (!empty($_GET['min']) && empty($_GET['max'])) {
+                $product = Product::where([['created_at', '<>', 0], ['unit_price', '>=', $_GET['min']]])->paginate(12);
+                $count_product = Product::where([['created_at', '<>', 0], ['unit_price', '>=', $_GET['min']]])->get();
+                $new_product = Product::where([['new', 1], ['unit_price', '>=', $_GET['min']]])->paginate(12);
+                $count_new_product = Product::where([['new', 1], ['unit_price', '>=', $_GET['min']]])->get();
+                $sanphamkhuyenmai = Product::where([['promotion_price', '<>', 0], ['unit_price', '>=', $_GET['min']]])->paginate(12);
+                $count_sanphamkhuyenmai = Product::where([['promotion_price', '<>', 0], ['unit_price', '>=', $_GET['min']]])->get();
+                $min = $_GET['min'];
+            } else if (!empty($_GET['max']) && empty($_GET['min'])) {
+                $product = Product::where([['created_at', '<>', 0], ['unit_price', '<=', $_GET['max']]])->paginate(12);
+                $count_product = Product::where([['created_at', '<>', 0], ['unit_price', '<=', $_GET['max']]])->get();
+                $new_product = Product::where([['new', 1], ['unit_price', '<=', $_GET['max']]])->paginate(12);
+                $count_new_product = Product::where([['new', 1], ['unit_price', '<=', $_GET['max']]])->get();
+                $sanphamkhuyenmai = Product::where([['promotion_price', '<>', 0], ['unit_price', '<=', $_GET['max']]])->paginate(12);
+                $count_sanphamkhuyenmai = Product::where([['promotion_price', '<>', 0], ['unit_price', '<=', $_GET['max']]])->get();
+                $max = $_GET['max'];
+            } else {
+                $product = Product::where([['created_at', '<>', 0], ['unit_price', '>=', $_GET['min']], ['unit_price', '<=', $_GET['max']]])->paginate(12);
+                $count_product = Product::where([['created_at', '<>', 0], ['unit_price', '>=', $_GET['min']], ['unit_price', '<=', $_GET['max']]])->get();
+                $new_product = Product::where([['new', 1], ['unit_price', '>=', $_GET['min']], ['unit_price', '<=', $_GET['max']]])->paginate(12);
+                $count_new_product = Product::where([['new', 1], ['unit_price', '>=', $_GET['min']], ['unit_price', '<=', $_GET['max']]])->get();
+                $sanphamkhuyenmai = Product::where([['promotion_price', '<>', 0], ['unit_price', '>=', $_GET['min']], ['unit_price', '<=', $_GET['max']]])->paginate(12);
+                $count_sanphamkhuyenmai = Product::where([['promotion_price', '<>', 0], ['unit_price', '>=', $_GET['min']], ['unit_price', '<=', $_GET['max']]])->get();
+                $min = $_GET['min'];
+                $max = $_GET['max'];
+            }
+        } else {
+            $product = Product::where('created_at', '<>', 0)->paginate(12);
+            $count_product = Product::where('created_at', '<>', 0)->get();
+            $new_product = Product::where('new', 1)->paginate(12);
+            $count_new_product = Product::where('new', 1)->get();
+            $sanphamkhuyenmai = Product::where('promotion_price', '<>', 0)->paginate(12);
+            $count_sanphamkhuyenmai = Product::where('promotion_price', '<>', 0)->get();
+        }
         return view('site.home.index',[
             'slide' => $slide,
             'product' => $product,
@@ -28,7 +59,9 @@ class HomeController extends Controller
             'new_product' => $new_product,
             'count_new_product' => $count_new_product,
             'sanphamkhuyenmai' => $sanphamkhuyenmai,
-            'count_sanphamkhuyenmai' => $count_sanphamkhuyenmai
+            'count_sanphamkhuyenmai' => $count_sanphamkhuyenmai,
+            'min' =>$min,
+            'max' =>$max
         ]);
     }
     //
@@ -82,17 +115,23 @@ class HomeController extends Controller
     }
     //
     public function timkiem(Request $request){
-        if(is_numeric($request->s)&&$request->s!=0){
-            $product = Product::Where('unit_price',$request->s)
-                ->orWhere('promotion_price',$request->s)
-                ->get();
+        $key = $request->s;
+        if(is_numeric($key)&&$key!=0){
+            $product = Product::Where('unit_price',$key)
+                ->orWhere('promotion_price',$key)
+                ->paginate(12);
+            $count = count(Product::Where('unit_price',$key)
+                ->orWhere('promotion_price',$key)->get());
         }else{
-            $product = Product::where('name','like',$request->s.'%')
-                ->get();
+            $product = Product::where('name','like',$key.'%')
+                ->paginate(12);
+            $count = count(Product::where('name','like',$key.'%')->get());
         }
 
         return view('site.home.search',[
-            'result' => $product
+            'result' => $product,
+            'count' => $count,
+            'key' => $key
         ]);
     }
 }

@@ -13,7 +13,7 @@
                     <li><a href="{{route('thaydoitk')}}" id="user"><i class="fa fa-user"></i>{{(Auth::user())->full_name}}</a></li>
                         <li><a href="{{route('dangxuat')}}">Đăng xuất</a></li>
                     @else
-                        <li><a href="{{route('dangky')}}">Đăng kí</a></li>
+                        <li><a href="{{route('dangky')}}">Đăng ký</a></li>
                         <li><a href="{{route('dangnhap')}}">Đăng nhập</a></li>
                     @endif
                 </ul>
