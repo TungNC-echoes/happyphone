@@ -15,7 +15,7 @@
                             <span>Danh sách</span>
                         </a></li>
 
-                    <li><a href="">
+                    <li><a href="admin/order/view">
                             <img src="source/backend/admin/images/excel.png" />
                             <span>Xuất file excel</span>
                         </a></li>
@@ -141,7 +141,14 @@
 
                     <td class="status textC">
 						<span class="pending">
-						Chờ xử lý						</span>
+                            <?php
+                                if ($order->status == 0) {
+                                    echo 'Chờ xử lý';
+                                } else if ($order->status == 1) {
+                                    echo 'Đã tiếp nhận';
+                                }
+                            ?>
+												</span>
                     </td>
 
                     <td class="textC">{{$order->created_at}}</td>

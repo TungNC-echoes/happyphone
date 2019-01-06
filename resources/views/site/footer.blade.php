@@ -2,16 +2,15 @@
     [view=footer] {
         display: flex;
         align-items: center;
-        flex-flow: nowrap;
+        flex-flow: column nowrap;
         background: rgb(37, 57, 81);
-
         padding-top: 40px;
         padding-bottom: 40px;
     }
 
     [view=footer] .main {
-        width: 1000px;
         display: flex;
+        width: 100%;
     }
 
     [view=footer] .main > :not(:first-child) {
@@ -44,24 +43,24 @@
         font-family: Arial !important;
         font-size: 14px;
     }
+
 </style>
 
 <div view="footer">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=297041787469942&autoLogAppEvents=1';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-    <div class="main">
-        <div class="row">
+    <div class="main row">
+        <div class="col-12">
             <div class="col-md-3 col-xs-6">
                 <h4>Like và share</h4>
-                <div class="fb-like" data-href="http://websitebanhang.gq/index"
+                <div class="fb-like" data-href="http://websitebanhang.gq/index" width="100"
                              data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=297041787469942&autoLogAppEvents=1';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
             </div>
             <div class="col-md-3 col-xs-6">
                 <h4><span></span> Hỗ trợ tư vấn</h4>

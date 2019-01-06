@@ -18,7 +18,6 @@
     <link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
     <link rel="stylesheet" href="source/assets/dest/css/animate.css">
     <link rel="stylesheet" href="source/assets/dest/css/error.css">
-    <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
     <link rel="stylesheet" href="source/assets/dest/css/jquery-confirm.min.css">
 
 </head>
@@ -31,7 +30,7 @@
 @include('site.footer')
 <div class="copyright">
     <div class="container">
-        <p class="pull-left">TungNC. (&copy;) 2018</p>
+        <p class="center">TungNC. (&copy;) 2018</p>
         <p class="pull-right pay-options">
         </p>
         <div class="clearfix"></div>
