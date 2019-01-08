@@ -134,4 +134,7 @@ class HomeController extends Controller
             'key' => $key
         ]);
     }
+    public function mail() {
+        return view('site.home.mail');
+}
 }

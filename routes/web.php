@@ -45,6 +45,7 @@ Route::get('search','HomeController@search');
 Route::get('timkiem','HomeController@timkiem')->name('search');
 Route::get('lienhe','HomeController@getLienHe')->name('lienhe');
 Route::post('lienhe','HomeController@postLienHe');
+Route::get('mail','HomeController@mail');
 
 /* Comment */
 
