@@ -41,6 +41,7 @@ Route::group(['middleware' => 'check_login1'],function (){
 Route::post('dang-ky','UserController@postDangKy');
 Route::post('check-email','UserController@checkEmail');
 Route::post('thay-doi-tai-khoan','UserController@postThayDoiTK');
+Route::get('lichsu','UserController@getLichSu')->name('lichsu');
 Route::get('search','HomeController@search');
 Route::get('timkiem','HomeController@timkiem')->name('search');
 Route::get('lienhe','HomeController@getLienHe')->name('lienhe');

@@ -4,13 +4,10 @@ namespace App\Mail;
 
 use App\Order;
 use App\User;
-use App\OrderDetail;
-use App\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class OrderSuccess extends Mailable
 {
