@@ -111,6 +111,7 @@ Route::group(['prefix' => 'admin','middleware' => 'admin_login'],function (){
     Route::group(['prefix' => 'transaction'],function (){
         Route::get('view','admin\TransactionController@view')->name('transaction');
         Route::get('chitiet/{id}','admin\TransactionController@chitiet');
+        Route::get('detail/{id}','admin\TransactionController@detail');
         Route::get('delete/{id}','admin\TransactionController@delete');
         Route::post('deleteMultiple','admin\TransactionController@deleteMultiple');
         Route::get('search','admin\TransactionController@search')->name('search_transaction');

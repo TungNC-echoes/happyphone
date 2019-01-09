@@ -30,6 +30,16 @@ class TransactionController extends Controller
         return response()->json($order);
     }
     //hiển thị form thông tin sản phẩm
+    public function detail($id){
+        $order = DB::table('order_detail')->join('products','products.id','order_detail.id_product')
+            ->where('order_detail.id_bill',$id)
+            ->selectRaw('products.id as id_product,products.*,order_detail.id as id_order,order_detail.*')
+            ->get();
+        return view('admin.transaction.edit', [
+            'order' => $order
+        ]);
+    }
+    //chỉnh sửa status
     public function add(){
         return view('admin.Order.add');
     }

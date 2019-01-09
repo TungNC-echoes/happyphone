@@ -154,6 +154,9 @@
                     <td class="textC">{{$order->created_at}}</td>
 
                     <td class="textC">
+                        <a href="admin/transaction/detail/{{$row->id}}" value="{{$row->id}}" title="Xem chi tiết giao dịch" class="tipS chitiet" >
+                            <img src="source/backend/admin/images/icons/color/view.png" />
+                        </a>
                         <a href="admin/tran/del/12" title="Xóa"  value="{{$order->id_order}}" class="tipS delete" >
                             <img src="source/backend/admin/images/icons/color/delete.png" />
                         </a>
