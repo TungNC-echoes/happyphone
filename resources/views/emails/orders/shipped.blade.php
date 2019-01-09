@@ -1,10 +1,4 @@
-<div>
-    Đơn hàng của: {{$order->id}}
-    Ngày đặt hàng: {{$order->date_order}}
-    Price: {{ $order->total }}
-    {{$order_detail}}
-</div>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="75%" border="0" cellpadding="0" cellspacing="0" align="center">
     <tbody><tr><td colspan="2"></td><td colspan="3" bgcolor="#E8E8E8" height="1px"></td><td colspan="3"></td></tr>
     <tr>
         <td bgcolor="#F8F8F8" width="1px"></td>
@@ -86,47 +80,44 @@
                 <div class="m_-5422268179432338897section-header m_-5422268179432338897section-header--itemsDetails">Chi tiết đơn hàng</div>
                 <div class="m_-5422268179432338897section-content">
                     <div class="m_-5422268179432338897shipmentIndex">
-                        <p><b>KIỆN HÀNG #1</b> được bán bởi AVAN Mart<br>
+                        <p><b>KIỆN HÀNG #1</b><br>
                             {{ date('d-m-Y', strtotime($mydate.' + 2 days'))}} đến {{ date('d-m-Y', strtotime($mydate.' + 4 days'))}}</p></p>
                     </div>
                     <?php foreach ($order_detail as $detail): ?>
                     <div class="m_-5422268179432338897product">
                         <div class="m_-5422268179432338897product-productImage">
-                            <a href="https://www.lazada.vn/-i167562311-s183377894.html?urlFlag=true&amp;mp=1?" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.lazada.vn/-i167562311-s183377894.html?urlFlag%3Dtrue%26mp%3D1?&amp;source=gmail&amp;ust=1547009896174000&amp;usg=AFQjCNEAarx1mJMJZhv3MS1VhcXyMNbzQA"><img src="https://ci6.googleusercontent.com/proxy/Gnwm-etdMc2pnia_B7Tqx6zRuykdDeAvP4UiGeZ60gpWdN1wOxDAm0_EPTd34EixBbxjcQCxGXmpU1cN_AVLw0MSE0xo2LVhl1hrpW_co5p5g1zqsTl-W-E2OATBRq-1AW3kRKtxUy8UBShCGrCTFQgY8cLzd7TX-sT4wCr1FV_ahGVxqSHbeLFPA8gJgFK8mPCdgA=s0-d-e1-ft#https://vn-live-02.slatic.net/p/3/hat-giong-hoa-thuoc-duoc-to-ong-mix-3951-72982314-7321d7df9b7e7cfdc873beb32918d6fb-catalog.jpg" width="160px" class="CToWUd"></a>
+                            <a href="#"
+                               target="_blank" data-saferedirecturl="#">
+                                <img src="<?php echo $message->embed('source/image/product/'.$detail->image); ?>" width="160px" class="CToWUd">
+                            </a>
                         </div>
                         <div class="m_-5422268179432338897product-productInfo">
                             <div class="m_-5422268179432338897product-productInfo-name">
-                                <a href="#">Hạt giống hoa Thược Dược tổ ong  Mix</a>
+                                <a href="#">{{ $detail->name }}</a>
                             </div>
                             <div class="m_-5422268179432338897product-productInfo-price">
-                                VND 22.500
+                                {{ $detail->unit_price }} VNĐ
                             </div>
                             <div class="m_-5422268179432338897product-productInfo-subInfo">
-                                Số lượng: 2<br>
-                                Nhà bán hàng: AVAN Mart
-                            </div>
-                            <div class="m_-5422268179432338897product-productInfo-button">
-                                <a href="https://www.lazada.vn/routes/?action=social&amp;sku=OE680HLAAOLTLRVNAMZ-51634077#" class="m_-5422268179432338897product-productInfo-button--fbShare" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.lazada.vn/routes/?action%3Dsocial%26sku%3DOE680HLAAOLTLRVNAMZ-51634077%23&amp;source=gmail&amp;ust=1547009896174000&amp;usg=AFQjCNFEnAZ0zvVOUIBJgFtv6SH-kgqqeg">Chia sẻ</a>
+                                Số lượng: {{ $detail->quantity }}<br>
+                                Sản Phẩm: {{ $detail->name}}
                             </div>
                         </div>
                     </div>
                     <?php endforeach; ?>
                     <div class="m_-5422268179432338897checkout">
                         <div class="m_-5422268179432338897two-column-left">
-                            <div class="m_-5422268179432338897checkout-info m_-5422268179432338897checkout-info--deliveryType">Giao hàng Tiêu chuẩn</div>
-                            <div class="m_-5422268179432338897checkout-info m_-5422268179432338897checkout-info--paymentMethod">{{$order->payment}}</div>
+                            <div class="m_-5422268179432338897checkout-info m_-5422268179432338897checkout-info--deliveryType">Giao hàng Tiêu chuẩn: {{$order->payment}}</div>
                         </div>
                         <div class="m_-5422268179432338897two-column-right">
                             <table class="m_-5422268179432338897checkout-amount" cellpadding="0" cellspacing="0">
                                 <tbody><tr>
                                     <td valign="top">Thành tiền: </td>
-                                    <td valign="top" align="right">VND</td>
-                                    <td valign="top" align="right">{{$order->total}}</td>
+                                    <td valign="top" align="right">{{$order->total}} VNĐ</td>
                                 </tr>
                                 <tr class="m_-5422268179432338897total">
                                     <td valign="top">Tổng cộng: </td>
-                                    <td valign="top" align="right">VND</td>
-                                    <td valign="top" align="right">{{$order->total}}</td>
+                                    <td valign="top" align="right">{{$order->total}} VNĐ</td>
                                 </tr>
                                 </tbody>
                             </table>

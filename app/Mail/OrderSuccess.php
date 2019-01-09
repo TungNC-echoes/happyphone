@@ -39,13 +39,9 @@ class OrderSuccess extends Mailable
     {
         $order_detail = DB::table('order_detail')
             ->join('products','products.id', '=', 'order_detail.id_product')
-            ->select('order_detail.quantity','products.id','products.name','order_detail.unit_price','products.image',
-                DB::raw('count(products.id)'))
-            ->groupBy('products.id','products.name','products.unit_price','products.promotion_price','products.image')
-            ->where('id_bill', $this->order->id)->toSql();
-        dd($order_detail);
+            ->select('order_detail.id','order_detail.id_bill','order_detail.quantity','order_detail.unit_price','products.id','products.name','products.image')
+            ->where('id_bill', $this->order->id)->get();
         $user = User::where('id',$this->order->id_customer)->first();
-        $order_detail = OrderDetail::where('id_bill', $this->order->id)->get();
         return $this->view('emails.orders.shipped')
             ->with([
                 'user' => $user,
