@@ -5,12 +5,26 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderDetail;
 use App\Product;
+use App\Mail\OrderSuccess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Cart;
 class OrderController extends Controller
 {
     //
+    public function ship(Request $request, $orderId)
+    {
+        $order = Order::findOrFail($orderId);
+
+        // Ship order...
+
+        $user = $request->user();
+        if ($user) {
+            Mail::to($user->email)->send(new OrderSuccess($order));
+        }
+    }
+
     public function getOrder(){
         $user = Auth::user();
         $cart = Cart::content();
@@ -37,6 +51,7 @@ class OrderController extends Controller
             $order->save();
         }
         Cart::destroy();
+        $this->ship($request, $tran->id);
         return redirect('dat-hang')->with('thongbao','Cảm ơn bạn đã đặt hàng sản phẩm của chúng tôi!');
     }
 }

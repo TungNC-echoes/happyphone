@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Cart;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -72,5 +73,19 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
         return redirect('thay-doi-tai-khoan')->with('thongbao','Thay đổi tài khoản thành công');
+    }
+
+    public function getLichSu() {
+        $user = Auth::user();
+        $orders = $order_detail = DB::table('order_detail')
+            ->join('products','products.id', '=', 'order_detail.id_product')
+            ->join('orders', 'orders.id', '=', 'order_detail.id_bill')
+            ->select('order_detail.id','order_detail.id_bill','order_detail.quantity','order_detail.id_product','order_detail.unit_price','products.id','products.name','products.image','order_detail.created_at')
+            ->where('id_customer', $user->id)->orderBy('id_bill', 'desc')->get();
+//        dd($orders);
+        return view('site.user.lichsu', [
+           'orders' => $orders,
+            'user' => $user
+        ]);
     }
 }
