@@ -17,7 +17,7 @@ class OrderController extends Controller
             ->selectRaw('products.id as id_product,products.*,order_detail.id as id_order,order_detail.*');
         //var_dump($order->get());
         $total = count($orders->get());
-        $orders = $orders->orderBy('order_detail.id_bill')->paginate(10);
+        $orders = $orders->orderBy('order_detail.id', 'DESC')->paginate(10);
         return view('admin.order.view',[
             'orders' => $orders,
             'total' => $total

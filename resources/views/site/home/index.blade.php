@@ -1,15 +1,6 @@
 @extends('site.layout')
 @section('content')
-    <script lang="javascript">
-        var _vc_data = {id : 6489152, secret : '4b7666cae45d835d79402798aec6cf94'};
-        (
-            function()
-            {
-                var ga = document.createElement('script');ga.type = 'text/javascript';
-                ga.async=true; ga.defer=true;
-                ga.src = '//live.vnpgroup.net/client/tracking.js?id=6489152';
-                var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();
-    </script>
+    <script lang="javascript">var _vc_data = {id : 6547594, secret : '6bcec8e19b435cfba8d28d09e04cc7b4'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//live.vnpgroup.net/client/tracking.js?id=6547594';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
     <div class="fullwidthbanner-container">
         <div class="fullwidthbanner">
             <div class="bannercontainer" >

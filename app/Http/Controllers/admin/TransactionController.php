@@ -13,7 +13,7 @@ class TransactionController extends Controller
     //
     public function view(){
         $tran = DB::table('orders')->join('users','orders.id_customer','users.id')
-                ->selectRaw('users.full_name as name,orders.*');
+                ->selectRaw('users.full_name as name,orders.*')->orderBy('orders.id', 'DESC');
         $total = count($tran->get());
         $tran = $tran->paginate(5);
         return view('admin.transaction.view',[
@@ -29,19 +29,23 @@ class TransactionController extends Controller
             ->get();
         return response()->json($order);
     }
-    //hiển thị form thông tin sản phẩm
-    public function detail($id){
+    ////chỉnh sửa status
+    public function changeStatus($id){
         $order = DB::table('order_detail')->join('products','products.id','order_detail.id_product')
-            ->where('order_detail.id_bill',$id)
+            ->where('order_detail.id',$id)
             ->selectRaw('products.id as id_product,products.*,order_detail.id as id_order,order_detail.*')
-            ->get();
+            ->first();
         return view('admin.transaction.edit', [
             'order' => $order
         ]);
     }
-    //chỉnh sửa status
-    public function add(){
-        return view('admin.Order.add');
+
+    public function postChangeStatus($id, Request $request) {
+        $order_detail = OrderDetail::find($id);
+        $status = $request->status;
+        $order_detail->status = $status;
+        $order_detail->save();
+        return redirect('admin/transaction/changeStatus/'.$id)->with('thongbao', 'Cập nhật trạng thái thành công');
     }
     //xử lý thêm thông tin sản phẩm
     public function postAdd(Request $request){

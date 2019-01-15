@@ -193,6 +193,16 @@
                             '                </thead>'+
                             ' <tbody class="list_item">\n';
                             data.forEach(function (value) {
+                                var status;
+                                if (value.status == null) {
+                                    status = 'Chờ xử lý';
+                                } else if (value.status == 1) {
+                                    status = "Đã tiếp nhận"
+                                } else if (value.status == 2) {
+                                    status = "Đang giao hàng"
+                                } else if (value.status == 3) {
+                                    status = "Thành công"
+                                }
                                 str +='<tr><td class="textC">'+value.id_order+'</td>\n'+
                                 ' <td>\n' +
                                 '                        <div class="image_thumb">\n' +
@@ -215,7 +225,8 @@
                                 '\n' +
                                 '                    <td class="status textC">\n' +
                                 '\t\t\t\t\t\t<span class="pending">\n' +
-                                '\t\t\t\t\t\tChờ xử lý\t\t\t\t\t\t</span>\n' +
+
+                                '\t\t\t\t\t\t'+status+'\t\t\t\t\t\t</span>\n' +
                                 '                    </td>\n' +
                                 '\n' +
                                 '                    <td class="textC">'+value.created_at+'</td></tr>'
