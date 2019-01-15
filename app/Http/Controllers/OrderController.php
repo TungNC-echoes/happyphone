@@ -29,6 +29,7 @@ class OrderController extends Controller
         $user = Auth::user();
         $cart = Cart::content();
         $total = Cart::subtotal();
+        $image = [];
         foreach ($cart as $row){
             $image[$row->id] = Product::find($row->id)->image;
         }

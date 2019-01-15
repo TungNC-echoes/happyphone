@@ -21,7 +21,7 @@ class HomeController extends Controller
     public function index(){
         $tran = DB::table('orders')->join('users','orders.id_customer','users.id')
             ->selectRaw('users.full_name as name,orders.*')
-            ->orderByRaw('orders.date_order desc')->take(10)->get();
+            ->orderByRaw('orders.id desc')->take(10)->get();
         $total_tran = count($tran);
         $total_product = count(Product::all());
         $total_comment = count(Contact::all());

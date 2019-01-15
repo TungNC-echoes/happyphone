@@ -73,6 +73,7 @@
                         <div class="your-order-head"><h5>Đơn hàng của bạn</h5></div>
                         <div class="your-order-body" id="order" style="padding: 0px 10px">
                             <div style="overflow: auto;max-height: 520px">
+                                @if(count($cart) !=0)
                             @foreach($cart as $row)
                             <div class="your-order-item" id="{{$row->rowId}}">
                                 <div>
@@ -91,6 +92,9 @@
                                 <div class="clearfix"></div>
                             </div>
                             @endforeach
+                                    @else
+                                    <span class="your-order-head" style="color: red">Bạn chưa chọn sản phẩm nào !</span>
+                                @endif
                             </div>
                             @if($total>0)
                                  <h5 id="tongtien">Tổng tiền : {{$total}} VNĐ</h5>

@@ -146,6 +146,10 @@
                                     echo 'Chờ xử lý';
                                 } else if ($order->status == 1) {
                                     echo 'Đã tiếp nhận';
+                                }else if ($order->status == 2) {
+                                    echo 'Đang giao hàng';
+                                }else if ($order->status == 3) {
+                                    echo 'Thành công';
                                 }
                             ?>
 												</span>
@@ -154,7 +158,7 @@
                     <td class="textC">{{$order->created_at}}</td>
 
                     <td class="textC">
-                        <a href="admin/transaction/detail/{{$row->id}}" value="{{$row->id}}" title="Xem chi tiết giao dịch" class="tipS chitiet" >
+                        <a href="admin/transaction/changeStatus/{{$order->id_order}}" value="{{$order->id_order}}" title="Xem chi tiết giao dịch" class="tipS chitiet" >
                             <img src="source/backend/admin/images/icons/color/view.png" />
                         </a>
                         <a href="admin/tran/del/12" title="Xóa"  value="{{$order->id_order}}" class="tipS delete" >
